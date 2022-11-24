@@ -8,7 +8,7 @@ public class Car {
     int year;   // год производства
     String country; // страна сборки
 
-    public Car(String brand, String model, int year, String country, String color, double engineVolume) {
+    public Car(String brand, String model, int year, String country, String color, double engineVolume) {   // задание 2 из ДЗ-2 было выпонено в ДЗ-1, конструктор создан
         this.brand = brand;
         this.model = model;
         this.year = year;
@@ -18,7 +18,7 @@ public class Car {
     }
 
     @Override
-    public String toString() {
+    public String toString() {  // необходимый формат вывода
         return this.brand + " " + this.model + ", " + this.year + " год выпуска, страна сборки — " + this.country + ", цвет кузова — " +
                 this.color + ", объем двигателя — " + this.engineVolume + " л.";
     }
