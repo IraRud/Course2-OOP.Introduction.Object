@@ -13,32 +13,16 @@ public class Main {
         Катя из города Калининград, которая родилась в 1992 году;;
         Артем из города Москва, который родился в 1995 году.*/
 
-        Person maksim = new Person();
-        maksim.name = "Максим";
-        maksim.town = "Минск";
-        maksim.yearOfBirth = 1988;
-        maksim.jobTitle = "бренд-менеджер";
+        Person maksim = new Person("Максим", "Минск", 1988,"бренд-менеджер");
         System.out.println(maksim.toString());
 
-        Person anya = new Person();
-        anya.name = "Аня";
-        anya.town = "Москва";
-        anya.yearOfBirth = 1993;
-        anya.jobTitle = "методист образовательных программ";
+        Person anya = new Person("Аня", "Москва", 1993,"методист образовательных программ");
         System.out.println(anya.toString());
 
-        Person katya = new Person();
-        katya.name = "Катя";
-        katya.town = "Калиниград";
-        katya.yearOfBirth = 1992;
-        katya.jobTitle = "продакт-менеджер";
+        Person katya = new Person("Катя", "Калиниград", 1992, "продакт-менеджер");
         System.out.println(katya.toString());
 
-        Person artem = new Person();
-        artem.name = "Артем";
-        artem.town = "Москва";
-        artem.yearOfBirth = 1995;
-        artem.jobTitle = "директор по развитию бизнеса";
+        Person artem = new Person("Артем", "Москва", 1995, "директор по развитию бизнеса");
         System.out.println(artem.toString());
     }
 

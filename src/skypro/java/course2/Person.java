@@ -1,13 +1,17 @@
 package skypro.java.course2;
 
 public class Person {
-    /* По условию 1 задания: свойства объектов можно объявить как public и использовать прямой доступ к свойствам для
-    того, чтобы их заполнить.*/
     public int yearOfBirth;
     public String name;
     public String town;
     public String jobTitle;
 
+    public Person(String name, String town, int yearOfBirth, String jobTitle) { // добавляем конструктор
+        this.name = name;
+        this.town = town;
+        this.yearOfBirth = yearOfBirth;
+        this.jobTitle = jobTitle;
+    }
     @Override
     public String toString() {
         return "Привет! Меня зовут " + this.name + ". Я из города " + this.town + ". Я родился в " + this.yearOfBirth
