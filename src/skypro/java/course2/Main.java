@@ -11,24 +11,28 @@ public class Main {
         maksim.name = "Максим";
         maksim.town = "Минск";
         maksim.yearOfBirth = 1988;
+        maksim.jobTitle = "бренд-менеджер";
         System.out.println(maksim.toString());
 
         Person anya = new Person();
         anya.name = "Аня";
         anya.town = "Москва";
         anya.yearOfBirth = 1993;
+        anya.jobTitle = "методист образовательных программ";
         System.out.println(anya.toString());
 
         Person katya = new Person();
         katya.name = "Катя";
         katya.town = "Калиниград";
         katya.yearOfBirth = 1992;
+        katya.jobTitle = "продакт-менеджер";
         System.out.println(katya.toString());
 
         Person artem = new Person();
         artem.name = "Артем";
         artem.town = "Москва";
         artem.yearOfBirth = 1995;
+        artem.jobTitle = "директор по развитию бизнеса";
         System.out.println(artem.toString());
     }
 }

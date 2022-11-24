@@ -6,10 +6,12 @@ public class Person {
     public int yearOfBirth;
     public String name;
     public String town;
+    public String jobTitle;
 
     @Override
     public String toString() {
-        return "Привет! Меня зовут " + this.name + ". Я из города " + this.town + ". Я родился в " + this.yearOfBirth + " году. Будем знакомы!";
+        return "Привет! Меня зовут " + this.name + ". Я из города " + this.town + ". Я родился в " + this.yearOfBirth
+                + " году. Я работаю на должности " + this.jobTitle + ". Будем знакомы!";
     }
 
 }
