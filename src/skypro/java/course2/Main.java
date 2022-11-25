@@ -22,7 +22,7 @@ public class Main {
         Person katya = new Person("Катя", "Калиниград", 1992, "продакт-менеджер");
         System.out.println(katya.toString());
 
-        Person artem = new Person("Артем", "Москва", 1995, "директор по развитию бизнеса");
+        Person artem = new Person("", "       ", -1985,null);   // на примере Артема сделаем все не так
         System.out.println(artem.toString());
     }
 
