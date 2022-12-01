@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         task_1();
         printSpecialSymbol();
+        task_2();
 //        task_3();
     }
 
@@ -28,6 +29,21 @@ public class Main {
 
         Person vladimir = new Person("Владимир", "Казань", 2001,null);
         System.out.println(vladimir.toString());
+    }
+
+    public static void task_2() {
+        /*Роза обыкновенная из Голландии, стоимость штуки — 35,59 рублей.
+        Хризантема, стоимость штуки — 15 рублей, срок стояния — 5 дней.
+        Пион из Англии, стоимость штуки — 69,9 рублей, срок стояния — 1 день.
+        Гипсофила, страна происхождения — Турция, стоимость штуки — 19,5 рублей, срок стояния — 10 дней.*/
+        Flower rose = new Flower("Роза обыкновенная", "Голландия", 35.59);
+        System.out.println(rose.toString());
+        Flower chrysanthemum = new Flower("Хризантема", "", 15, 5);
+        System.out.println(chrysanthemum.toString());
+        Flower peony = new Flower("Пион", "Англия", 69.9, 1);
+        System.out.println(peony.toString());
+        Flower gypsophila = new Flower("Гипсофила", "Турция", 19.5, 10);
+        System.out.println(gypsophila.toString());
     }
 
     public static void task_3() {
