@@ -11,7 +11,8 @@ public class Main {
         /*Максим из города Минск, который родился в 1988 году;
         Аня из города Москва, которая родилась в 1993 году;
         Катя из города Калининград, которая родилась в 1992 году;;
-        Артем из города Москва, который родился в 1995 году.*/
+        Артем из города Москва, который родился в 1995 году.
+        Владимир, который родился в 2001 году, живет в Казани, сейчас нигде не работает.*/
 
         Person maksim = new Person("Максим", "Минск", 1988,"бренд-менеджер");
         System.out.println(maksim.toString());
@@ -24,6 +25,9 @@ public class Main {
 
         Person artem = new Person("", "       ", -1985,null);   // на примере Артема сделаем все не так
         System.out.println(artem.toString());
+
+        Person vladimir = new Person("Владимир", "Казань", 2001,null);
+        System.out.println(vladimir.toString());
     }
 
     public static void task_3() {
