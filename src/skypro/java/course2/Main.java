@@ -2,12 +2,12 @@ package skypro.java.course2;
 
 public class Main {
     public static void main(String[] args) {
-        task_1_2();
+        task_1();
         printSpecialSymbol();
-        task_3();
+//        task_3();
     }
 
-    public static void task_1_2() {
+    public static void task_1() {
         /*Максим из города Минск, который родился в 1988 году;
         Аня из города Москва, которая родилась в 1993 году;
         Катя из города Калининград, которая родилась в 1992 году;;
