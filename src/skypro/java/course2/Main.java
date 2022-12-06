@@ -44,6 +44,13 @@ public class Main {
         System.out.println(peony.toString());
         Flower gypsophila = new Flower("Гипсофила", "Турция", 19.5, 10);
         System.out.println(gypsophila.toString());
+
+        printSpecialSymbol();
+
+        Flower[] flowers = new Flower[] {rose, chrysanthemum};  // создаем массив цветков
+        Bouquet bouquet = new Bouquet(flowers); // из массива цветков создаем букет
+        bouquet.addFlower(rose);   // добавляем еще один цветок
+        System.out.println(bouquet.toString());
     }
 
     public static void task_3() {
