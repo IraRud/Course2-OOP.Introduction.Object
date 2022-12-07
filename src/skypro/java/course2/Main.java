@@ -2,6 +2,9 @@ package skypro.java.course2;
 
 import skypro.java.course2.transport.Car;   // импорт класса
 import skypro.java.course2.transport.Car.Key;   // импорт класса
+import skypro.java.course2.transport.Car.Insurance;   // импорт класса
+
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -78,8 +81,11 @@ public class Main {
         System.out.println("Проверка корректности формата регистрационного номера - " + fifthCar.checkRegistrationNumber());    // проверка корректности регистрационного номера
         System.out.println(fifthCar.toString());
 
-        Key keyOfFifthCar = fifthCar.new Key(true, false);  // создание ключа для конкретной машины с помощью класса "Ключ"
-
+        Key keyOfFifthCar = fifthCar.new Key(true, false);  // создание ключа для конкретной машины
+        Insurance insuranceOfFifthCar = fifthCar.new Insurance(LocalDate.of(2022, 10, 1), -12_000, "new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 19}");   // создание страховки для конкретной машины
+        System.out.println(insuranceOfFifthCar.toString());
+        insuranceOfFifthCar.checkValidityPeriod();  // проверка истечения срока страховки
+        insuranceOfFifthCar.checkNumber();  // проверка длины номера страховки
     }
 
     public static void printSpecialSymbol() {

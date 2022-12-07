@@ -22,6 +22,63 @@ public class Car {
         }
     }
 
+    public class Insurance {   // вложенный класс "Страховка"
+        final private LocalDate validityPeriod;   // срок действия страховки (дата окончания действия страховки)
+        final private double cost;   // стоимость страховки
+        final private String number;   // номер страховки (9-ое число)
+
+        public Insurance(LocalDate validityPeriod, double cost, String number) {
+            this.validityPeriod = validityPeriod;   // проверка на валидность не требуется, тк предусмотрена у LocalDate
+            if (cost <= 0) {    // при стоимости 0 или отрицательном значении
+                this.cost = 10_000;  // при некорректном вводе устаналивается базовый тариф в 10 000р
+            } else {
+                this.cost = cost;
+            }
+            if (number == null || number.isBlank() || number.isEmpty()) {    // если номер - null и пустые строки
+                this.number = "000000000";  // по умолчанию
+            } else if (number.matches("[0-9]+")) {  // номер не содержит ничего кроме цифр
+                this.number = number;
+            } else {
+                this.number = "000000000";  // по умолчанию
+            }
+        }
+
+        public void checkValidityPeriod() { // проверка даты окончания действия страховки
+            if (validityPeriod.getYear() < LocalDate.now().getYear()) {
+                System.out.println("Необходимо оформить новую страховку!");
+            } else if (validityPeriod.getYear() == LocalDate.now().getYear() && validityPeriod.getDayOfYear() < LocalDate.now().getDayOfYear()) {
+                System.out.println("Необходимо оформить новую страховку!");
+            }
+        }
+
+        public void checkNumber() { // проверка длины номера страховки
+            if (number.length() != 9) {
+                System.out.println("Номер страховки некорректный!");
+            }
+        }
+
+        public LocalDate getValidityPeriod() {
+            return validityPeriod;
+        }
+
+        public double getCost() {
+            return cost;
+        }
+
+        public String getNumber() {
+            return number;
+        }
+
+        @Override
+        public String toString() {
+            return "Insurance{" +
+                    "validityPeriod=" + validityPeriod +
+                    ", cost=" + cost +
+                    ", number='" + number + '\'' +
+                    '}';
+        }
+    }
+
     final private String brand;   // марка
     final private String model;   // модель
     private double engineVolume;    // объем двигателя в литрах
