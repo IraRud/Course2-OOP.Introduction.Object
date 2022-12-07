@@ -69,14 +69,6 @@ public class Car {
             return number;
         }
 
-        @Override
-        public String toString() {
-            return "Insurance{" +
-                    "validityPeriod=" + validityPeriod +
-                    ", cost=" + cost +
-                    ", number='" + number + '\'' +
-                    '}';
-        }
     }
 
     final private String brand;   // марка
