@@ -1,16 +1,18 @@
 package skypro.java.course2;
 
-import skypro.java.course2.transport.Car;
+import skypro.java.course2.transport.Car;   // импорт класса
+import skypro.java.course2.transport.Car.Key;   // импорт класса
 
 public class Main {
     public static void main(String[] args) {
-//        task_1();
+//        task_Person();
 //        printSpecialSymbol();
-//        task_2();
-        task_3();
+//        task_Flower();
+//        printSpecialSymbol();
+        task_Car();
     }
 
-    public static void task_1() {
+    public static void task_Person() {
         /*Максим из города Минск, который родился в 1988 году;
         Аня из города Москва, которая родилась в 1993 году;
         Катя из города Калининград, которая родилась в 1992 году;;
@@ -33,7 +35,7 @@ public class Main {
         System.out.println(vladimir.toString());
     }
 
-    public static void task_2() {
+    public static void task_Flower() {
         /*Роза обыкновенная из Голландии, стоимость штуки — 35,59 рублей.
         Хризантема, стоимость штуки — 15 рублей, срок стояния — 5 дней.
         Пион из Англии, стоимость штуки — 69,9 рублей, срок стояния — 1 день.
@@ -55,7 +57,7 @@ public class Main {
         System.out.println(bouquet.toString());
     }
 
-    public static void task_3() {
+    public static void task_Car() {
         /*Lada Granta, 2015 год выпуска, сборка в России, желтого цвета, объем двигателя — 1,7 л.
         Audi A8 50 L TDI quattro, 2020 год выпуска, сборка в Германии, черный цвет кузова, объем двигателя — 3,0 л.
         BMW Z8, сборка в Германии в 2021 году, черный цвет кузова, объем — 3,0 л.
@@ -75,6 +77,9 @@ public class Main {
         fifthCar.changeTiresForSeasonalOnes();  // метод позволяет сменить резину на сезонную (на момент выполнения - зима)
         System.out.println("Проверка корректности формата регистрационного номера - " + fifthCar.checkRegistrationNumber());    // проверка корректности регистрационного номера
         System.out.println(fifthCar.toString());
+
+        Key keyOfFifthCar = fifthCar.new Key(true, false);  // создание ключа для конкретной машины с помощью класса "Ключ"
+
     }
 
     public static void printSpecialSymbol() {

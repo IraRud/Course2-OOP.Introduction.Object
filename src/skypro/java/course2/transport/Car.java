@@ -3,6 +3,25 @@ package skypro.java.course2.transport;
 import java.time.LocalDate;
 
 public class Car {
+
+    public class Key {  // вложенный класс "Ключ"
+        final private boolean remoteEngineStart;  // удаленный запуск двигателя, true или false
+        final private boolean keylessAccess;  // бесключевой доступ, true или false
+
+        public Key(boolean remoteEngineStart, boolean keylessAccess) {
+            this.remoteEngineStart = remoteEngineStart;
+            this.keylessAccess = keylessAccess;
+        }
+
+        public boolean isRemoteEngineStart() {
+            return remoteEngineStart;
+        }
+
+        public boolean isKeylessAccess() {
+            return keylessAccess;
+        }
+    }
+
     final private String brand;   // марка
     final private String model;   // модель
     private double engineVolume;    // объем двигателя в литрах
@@ -11,7 +30,7 @@ public class Car {
     final private String country; // страна сборки
     private String transmission;    // коробка передач
     final private String bodyType;    // тип кузова
-    private String registrationNumber;    // регистрационный номер !!!!!!!!!!!!!!!
+    private String registrationNumber;    // регистрационный номер
     final private int numberOfSeats;  // количество мест
     private boolean summerTires;  // летняя резина (летняя - true, зимняя - false)
 
