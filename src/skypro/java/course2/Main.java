@@ -83,7 +83,6 @@ public class Main {
 
         Key keyOfFifthCar = fifthCar.new Key(true, false);  // создание ключа для конкретной машины
         Insurance insuranceOfFifthCar = fifthCar.new Insurance(LocalDate.of(2022, 10, 1), -12_000, "new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 19}");   // создание страховки для конкретной машины
-        System.out.println(insuranceOfFifthCar.toString());
         insuranceOfFifthCar.checkValidityPeriod();  // проверка истечения срока страховки
         insuranceOfFifthCar.checkNumber();  // проверка длины номера страховки
     }
