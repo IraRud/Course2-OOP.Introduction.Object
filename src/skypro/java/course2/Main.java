@@ -8,10 +8,10 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-//        task_Person();
-//        printSpecialSymbol();
-//        task_Flower();
-//        printSpecialSymbol();
+        task_Person();
+        printSpecialSymbol();
+        task_Flower();
+        printSpecialSymbol();
         task_Car();
     }
 
@@ -23,19 +23,19 @@ public class Main {
         Владимир, который родился в 2001 году, живет в Казани, сейчас нигде не работает.*/
 
         Person maksim = new Person("Максим", "Минск", 1988,"бренд-менеджер");
-        System.out.println(maksim.toString());
+        System.out.println(maksim);
 
         Person anya = new Person("Аня", "Москва", 1993,"методист образовательных программ");
-        System.out.println(anya.toString());
+        System.out.println(anya);
 
         Person katya = new Person("Катя", "Калиниград", 1992, "продакт-менеджер");
-        System.out.println(katya.toString());
+        System.out.println(katya);
 
         Person artem = new Person("", "       ", -1985,null);   // на примере Артема сделаем все не так
-        System.out.println(artem.toString());
+        System.out.println(artem);
 
         Person vladimir = new Person("Владимир", "Казань", 2001,null);
-        System.out.println(vladimir.toString());
+        System.out.println(vladimir);
     }
 
     public static void task_Flower() {
@@ -44,20 +44,20 @@ public class Main {
         Пион из Англии, стоимость штуки — 69,9 рублей, срок стояния — 1 день.
         Гипсофила, страна происхождения — Турция, стоимость штуки — 19,5 рублей, срок стояния — 10 дней.*/
         Flower rose = new Flower("Роза обыкновенная", "Голландия", 35.59);
-        System.out.println(rose.toString());
+        System.out.println(rose);
         Flower chrysanthemum = new Flower("Хризантема", "", 15, 5);
-        System.out.println(chrysanthemum.toString());
+        System.out.println(chrysanthemum);
         Flower peony = new Flower("Пион", "Англия", 69.9, 1);
-        System.out.println(peony.toString());
+        System.out.println(peony);
         Flower gypsophila = new Flower("Гипсофила", "Турция", 19.5, 10);
-        System.out.println(gypsophila.toString());
+        System.out.println(gypsophila);
 
         printSpecialSymbol();
 
         Flower[] flowers = new Flower[] {rose, chrysanthemum};  // создаем массив цветков
         Bouquet bouquet = new Bouquet(flowers); // из массива цветков создаем букет
         bouquet.addFlower(rose);   // добавляем еще один цветок
-        System.out.println(bouquet.toString());
+        System.out.println(bouquet);
     }
 
     public static void task_Car() {
@@ -75,14 +75,16 @@ public class Main {
         Car fourthCar = new Car("Kia", "Sportage 4-го поколения", 2018,"Южная Корея", "красный", 2.4);
         System.out.println(fourthCar.toString()); */
 
-        Car fifthCar = new Car("Hyundai", "Avante", 2016,"Южная Корея", "оранжевый", 1.6, "T15", "Универсал", "A000AA25", 2, true);
-        System.out.println(fifthCar.toString());
-        fifthCar.changeTiresForSeasonalOnes();  // метод позволяет сменить резину на сезонную (на момент выполнения - зима)
-        System.out.println("Проверка корректности формата регистрационного номера - " + fifthCar.checkRegistrationNumber());    // проверка корректности регистрационного номера
-        System.out.println(fifthCar.toString());
+        Car fifthCar = new Car("Hyundai", "Avante", 2016," ", "оранжевый", 1.6, "T15", "Универсал", "A000AA125", 2, true);
+        System.out.println(fifthCar);
+        fifthCar.changeTiresForSeasonalOnes();  // метод позволяет сменить резину на сезонную автоматически (на момент выполнения - зима)
+        System.out.println(fifthCar);
 
         Key keyOfFifthCar = fifthCar.new Key(true, false);  // создание ключа для конкретной машины
-        Insurance insuranceOfFifthCar = fifthCar.new Insurance(LocalDate.of(2022, 10, 1), -12_000, "new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 19}");   // создание страховки для конкретной машины
+        Insurance insuranceOfFifthCar = fifthCar.new Insurance(LocalDate.of(2022, 10, 1), -12_000, "000");   // создание страховки для конкретной машины
+        fifthCar.setKey(keyOfFifthCar); // тк не передавали в конструктор
+        fifthCar.setInsurance(insuranceOfFifthCar); // тк не передавали в конструктор
+        System.out.println(fifthCar);
         insuranceOfFifthCar.checkValidityPeriod();  // проверка истечения срока страховки
         insuranceOfFifthCar.checkNumber();  // проверка длины номера страховки
     }
