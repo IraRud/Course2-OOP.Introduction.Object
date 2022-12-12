@@ -9,6 +9,9 @@ public class Transport {
     private String color;   // цвет кузова
     private double maxSpeed;    // максимальная скорость передвижения
 
+    public Transport(String brand, String model, int year, String country) {
+        this(brand, model, year, country, "default", 40);
+    }
     public Transport(String brand, String model, int year, String country, String color, double maxSpeed) {
         this.brand = validateStringValue(brand);
         this.model = validateStringValue(model);
@@ -64,5 +67,11 @@ public class Transport {
 
     public void setMaxSpeed(double maxSpeed) {
         this.maxSpeed =  validateSpeed(maxSpeed);
+    }
+
+    @Override
+    public String toString() {
+        return brand + " " + model + ", " + year + " год выпуска, страна сборки — " + country + ", цвет кузова — " +
+                color + ", максимальная скорость передвижения — " + maxSpeed + ".";
     }
 }

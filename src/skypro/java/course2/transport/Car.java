@@ -217,8 +217,7 @@ public class Car extends Transport {
 
     @Override
     public String toString() {  // необходимый формат вывода
-        return getBrand() + " " + getModel() + ", " + getYear() + " год выпуска, страна сборки — " + getCountry() + ", цвет кузова — " +
-                getColor() + ", максимальная скорость передвижения — " + getMaxSpeed() + ", объем двигателя — " + this.engineVolume + " л., кробка передач — " + this.transmission +
+        return "Машина: " +super.toString() + " Объем двигателя — " + this.engineVolume + " л., кробка передач — " + this.transmission +
                 ", тип кузова — " + this.bodyType + ", регистрационный номер — " + this.registrationNumber + ", количество мест — " + this.numberOfSeats +
                 ", летняя резина — " + this.summerTires + ". " + key + ". " + insurance;
     }
