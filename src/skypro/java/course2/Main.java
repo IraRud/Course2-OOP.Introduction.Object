@@ -12,7 +12,7 @@ public class Main {
         printSpecialSymbol();
         task_Flower();
         printSpecialSymbol();
-        task_Car();
+//        task_Car();
     }
 
     public static void task_Person() {
@@ -75,7 +75,7 @@ public class Main {
         Car fourthCar = new Car("Kia", "Sportage 4-го поколения", 2018,"Южная Корея", "красный", 2.4);
         System.out.println(fourthCar.toString()); */
 
-        Car fifthCar = new Car("Hyundai", "Avante", 2016," ", "оранжевый", 1.6, "T15", "Универсал", "A000AA125", 2, true);
+        Car fifthCar = new Car("Hyundai", "Avante", 2016," ", "оранжевый", 1.6, 39, "T15", "Универсал", "A000AA125", 2, true);
         System.out.println(fifthCar);
         fifthCar.changeTiresForSeasonalOnes();  // метод позволяет сменить резину на сезонную автоматически (на момент выполнения - зима)
         System.out.println(fifthCar);

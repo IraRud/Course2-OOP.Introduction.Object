@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import static skypro.java.course2.transport.ValidateUtils.validateBoolean;
 import static skypro.java.course2.transport.ValidateUtils.validateString;
 
-public class Car {
+public class Car extends Transport {
 
     public class Key {  // вложенный класс "Ключ"
         final private boolean remoteEngineStart;  // удаленный запуск двигателя, true или false
@@ -80,16 +80,11 @@ public class Car {
 
         @Override
         public String toString() {
-            return "Страховка: дата окончания действия страховки — " + validityPeriod + ", цена — " + cost + ", номер — " + number;
+            return "Страховка: дата окончания действия страховки — " + validityPeriod + ", цена — " + cost + ", номер — " + number +".";
         }
     }
 
-    final private String brand;   // марка
-    final private String model;   // модель
     private double engineVolume;    // объем двигателя в литрах
-    private String color;   // цвет кузова
-    final private int year;   // год производства
-    final private String country; // страна сборки
     private String transmission;    // коробка передач
     final private String bodyType;    // тип кузова
     private String registrationNumber;    // регистрационный номер
@@ -99,12 +94,8 @@ public class Car {
     private Key key;
     private Insurance insurance;
 
-    public Car(String brand, String model, int year, String country, String color, double engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerTires) {   // добавлена проверка в конструкторе
-        this.brand = validateBrand(brand);
-        this.model = validateModel(model);
-        this.year = validateYear(year);
-        this.country = validateCountry(country);
-        this.color = validateColor(color);
+    public Car(String brand, String model, int year, String country, String color, double maxSpeed, double engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerTires) {   // добавлена проверка в конструкторе
+        super(brand, model, year, country, color, maxSpeed);
         this.engineVolume = validateEngineVolume(engineVolume);
         this.transmission = validateTransmission(transmission);
         this.bodyType = validateBodyType(bodyType);
@@ -114,26 +105,6 @@ public class Car {
     }
 
 // region validation
-    private String validateBrand(String value) {
-        return validateString(value, "default");
-    }
-
-    private String validateModel(String value) {
-        return validateString(value, "default");
-    }
-
-    private int validateYear(int year) {
-        return year <= 0 ? 2000 : year;
-    }
-
-    private String validateCountry(String value) {
-        return validateString(value, "default");
-    }
-
-    private String validateColor(String value) {
-        return validateString(value, "белый");
-    }
-
     private double validateEngineVolume(double engineVolume) {
         return engineVolume <= 0 ? 1.5 : engineVolume;
     }
@@ -187,22 +158,6 @@ public class Car {
     }
 
 // region getters and setters
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
     public String getBodyType() {
         return bodyType;
     }
@@ -217,14 +172,6 @@ public class Car {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = validateEngineVolume(engineVolume);
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = validateColor(color);
     }
 
     public String getTransmission() {
@@ -270,8 +217,8 @@ public class Car {
 
     @Override
     public String toString() {  // необходимый формат вывода
-        return this.brand + " " + this.model + ", " + this.year + " год выпуска, страна сборки — " + this.country + ", цвет кузова — " +
-                this.color + ", объем двигателя — " + this.engineVolume + " л., кробка передач — " + this.transmission +
+        return getBrand() + " " + getModel() + ", " + getYear() + " год выпуска, страна сборки — " + getCountry() + ", цвет кузова — " +
+                getColor() + ", максимальная скорость передвижения — " + getMaxSpeed() + ", объем двигателя — " + this.engineVolume + " л., кробка передач — " + this.transmission +
                 ", тип кузова — " + this.bodyType + ", регистрационный номер — " + this.registrationNumber + ", количество мест — " + this.numberOfSeats +
                 ", летняя резина — " + this.summerTires + ". " + key + ". " + insurance;
     }
