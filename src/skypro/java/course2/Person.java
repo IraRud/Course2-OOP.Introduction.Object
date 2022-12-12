@@ -1,19 +1,15 @@
 package skypro.java.course2;
 
 public class Person {
-    public int yearOfBirth;
+    private int yearOfBirth;
     public String name;
-    public String town;
+    private String town;
     public String jobTitle;
 
-    public Person(String name, String town, int yearOfBirth, String jobTitle) { // добавлена проверка в конструкторе
+    public Person(String name, String town, int yearOfBirth, String jobTitle) { // проверка полей town, yearOfBirth вынесена в сеттеры
         this.name = checkValue(name);
-        this.town = checkValue(town);
-        if (yearOfBirth >= 0) { // год рождения не может быть отрицательным
-            this.yearOfBirth = yearOfBirth;
-        } else {
-            this.yearOfBirth = 0;   // в противном случае 0
-        }
+        setTown(town);  // поле town не помечено модификатором доступа final, можно использовать сеттер в конструкторе и убрать дублирование кода для проверок
+        setYearOfBirth(yearOfBirth); // поле yearOfBirth не помечено модификатором доступа final, можно использовать сеттер в конструкторе и убрать дублирование кода для проверок
         this.jobTitle = checkValue(jobTitle);
     }
     @Override
@@ -29,4 +25,24 @@ public class Person {
         return str;
     }
 
+    // геттеры и сеттеры полей town, yearOfBirth
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        if (yearOfBirth >= 0) { // год рождения не может быть отрицательным
+            this.yearOfBirth = yearOfBirth;
+        } else {
+            this.yearOfBirth = 0;   // в противном случае 0
+        }
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = checkValue(town);
+    }
 }
