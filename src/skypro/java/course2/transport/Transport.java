@@ -1,24 +1,26 @@
 package skypro.java.course2.transport;
 import static skypro.java.course2.transport.ValidateUtils.validateString;
 
-public class Transport {
+public abstract class Transport {
     final private String brand;   // марка
     final private String model;   // модель
     final private int year;   // год выпуска
     final private String country; // страна производства
     private String color;   // цвет кузова
     private double maxSpeed;    // максимальная скорость передвижения
+    private double fuelPercentage;  // количество топлива в процентах
 
-    public Transport(String brand, String model, int year, String country) {
-        this(brand, model, year, country, "белый", 40);
-    }
     public Transport(String brand, String model, int year, String country, String color, double maxSpeed) {
+        this(brand, model, year, country, "белый", 40, 100);
+    }
+    public Transport(String brand, String model, int year, String country, String color, double maxSpeed, double fuelPercentage) {
         this.brand = validateStringValue(brand);
         this.model = validateStringValue(model);
         this.year = validateYear(year);
         this.country = validateStringValue(country);
         this.color = validateColor(color);
         this.maxSpeed = validateSpeed(maxSpeed);
+        this.fuelPercentage = validateFuelPercentage(fuelPercentage);
     }
 
     private String validateStringValue(String value) {
@@ -36,6 +38,12 @@ public class Transport {
     private double validateSpeed(double maxSpeed) {
         return maxSpeed < 40 ? 40 : maxSpeed;
     }
+
+    private double validateFuelPercentage(double fuelPercentage) {
+        return fuelPercentage <= 0 || fuelPercentage > 100 ? 100 : fuelPercentage;
+    }
+
+    public abstract void refill();  // вывод на экран то, какими видами топлива заправляется транспорт, и установка значения поля в 100%
 
     public String getBrand() {
         return brand;
@@ -69,9 +77,17 @@ public class Transport {
         this.maxSpeed =  validateSpeed(maxSpeed);
     }
 
+    public double getFuelPercentage() {
+        return fuelPercentage;
+    }
+
+    protected void setFuelPercentage(double fuelPercentage) {   // изменение доступно в классах наследниках
+        this.fuelPercentage = validateFuelPercentage(fuelPercentage);
+    }
+
     @Override
     public String toString() {
         return brand + " " + model + ", " + year + " год выпуска, страна сборки — " + country + ", цвет кузова — " +
-                color + ", максимальная скорость передвижения — " + maxSpeed + " км/ч.";
+                color + ", максимальная скорость передвижения — " + maxSpeed + " км/ч, количество топлива — " + fuelPercentage + "%.";
     }
 }

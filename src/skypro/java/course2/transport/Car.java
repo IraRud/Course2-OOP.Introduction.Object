@@ -94,8 +94,8 @@ public class Car extends Transport {
     private Key key;
     private Insurance insurance;
 
-    public Car(String brand, String model, int year, String country, String color, double maxSpeed, double engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerTires) {   // добавлена проверка в конструкторе
-        super(brand, model, year, country, color, maxSpeed);
+    public Car(String brand, String model, int year, String country, String color, double maxSpeed, double fuelPercentage, double engineVolume, String transmission, String bodyType, String registrationNumber, int numberOfSeats, boolean summerTires) {
+        super(brand, model, year, country, color, maxSpeed, fuelPercentage);
         this.engineVolume = validateEngineVolume(engineVolume);
         this.transmission = validateTransmission(transmission);
         this.bodyType = validateBodyType(bodyType);
@@ -155,6 +155,13 @@ public class Car extends Transport {
                 break;
         }
         return this.summerTires;
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Машину можно заправлять бензином, дизелем на заправке или заряжать на специальных электропарковках, " +
+                "если это электрокар!");
+        setFuelPercentage(100.00);
     }
 
 // region getters and setters
@@ -217,7 +224,7 @@ public class Car extends Transport {
 
     @Override
     public String toString() {  // необходимый формат вывода
-        return "Машина: " +super.toString() + " Объем двигателя — " + this.engineVolume + " л., кробка передач — " + this.transmission +
+        return "Машина: " + super.toString() + " Объем двигателя — " + this.engineVolume + " л., кробка передач — " + this.transmission +
                 ", тип кузова — " + this.bodyType + ", регистрационный номер — " + this.registrationNumber + ", количество мест — " + this.numberOfSeats +
                 ", летняя резина — " + this.summerTires + ". " + key + ". " + insurance;
     }

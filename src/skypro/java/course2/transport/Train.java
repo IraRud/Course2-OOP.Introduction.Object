@@ -11,8 +11,8 @@ public class Train extends Transport {
     final private String finalStation;    // конечная остановка
     private int numberOfWagons;     // количество вагонов
 
-    public Train(String brand, String model, int year, String country, String color, double maxSpeed, double cost, LocalTime time, String departureStation, String finalStation, int numberOfWagons) {
-        super(brand, model, year, country, color, maxSpeed);
+    public Train(String brand, String model, int year, String country, String color, double maxSpeed, double fuelPercentage, double cost, LocalTime time, String departureStation, String finalStation, int numberOfWagons) {
+        super(brand, model, year, country, color, maxSpeed, fuelPercentage);
         this.cost = validateCost(cost);
         this.time = validateTime(time);
         this.departureStation = validateStringValue(departureStation);
@@ -34,6 +34,12 @@ public class Train extends Transport {
 
     private int validateNumberOfWagons(int numberOfWagons) {
         return numberOfWagons < 3 ? 3 : numberOfWagons;
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Поезд нужно заправлять дизелем!");
+        setFuelPercentage(100.00);
     }
 
     public double getCost() {
