@@ -22,15 +22,15 @@ public abstract class Mammal extends Animal{
         return speed <= 0 ? 10 : speed;
     }
 
-    public String getAreal() {
+    public final String getAreal() {
         return areal;
     }
 
-    public void setAreal(String areal) {
+    public final void setAreal(String areal) {
         this.areal = validateAreal(areal);
     }
 
-    public double getSpeed() {
+    public final double getSpeed() {
         return speed;
     }
 

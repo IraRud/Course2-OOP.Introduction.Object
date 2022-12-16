@@ -25,15 +25,15 @@ public abstract class Animal {
         return age < 0 ? 0 : age;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = validateName(name);
     }
 
-    public int getAge() {
+    public final int getAge() {
         return age;
     }
 

@@ -8,10 +8,12 @@ public class Main {
         System.out.println(tiger);
         Amphibian frog = new Amphibian("Лягушка", -1, "средняя полоса");
         System.out.println(frog);
-        checkMethods(gazelle, tiger, frog);
+        Flightless penguin = new Flightless("Пингвин", 4, "Антарктида", "пешком и вплавь");
+        System.out.println(penguin);
+        checkMethods(gazelle, tiger, frog, penguin);
     }
 
-    public static void checkMethods(Herbivore gazelle, Predator tiger, Amphibian frog) {
+    public static void checkMethods(Herbivore gazelle, Predator tiger, Amphibian frog, Flightless penguin) {
         specialSymbol();
         gazelle.eat();
         gazelle.sleep();
@@ -29,6 +31,12 @@ public class Main {
         frog.sleep();
         frog.eat();
         frog.hunt();
+        specialSymbol();
+        penguin.go();
+        penguin.sleep();
+        penguin.eat();
+        penguin.hunt();
+        penguin.walk();
     }
 
     public static void specialSymbol() {

@@ -26,11 +26,11 @@ public class Amphibian extends Animal {
         return areal == null || areal.isEmpty() || areal.isBlank() ? "неизвестно" : areal;
     }
 
-    public String getAreal() {
+    public final String getAreal() {
         return areal;
     }
 
-    public void setAreal(String areal) {
+    public final void setAreal(String areal) {
         this.areal = validateAreal(areal);
     }
 

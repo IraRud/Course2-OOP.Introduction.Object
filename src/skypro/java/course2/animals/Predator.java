@@ -26,7 +26,7 @@ public class Predator extends Mammal {
         return typeOfFood == null || typeOfFood.isEmpty() || typeOfFood.isBlank() ? "растительность" : typeOfFood;
     }
 
-    public String getTypeOfFood() {
+    public final String getTypeOfFood() {
         return typeOfFood;
     }
 
