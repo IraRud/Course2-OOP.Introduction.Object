@@ -10,10 +10,12 @@ public class Main {
         System.out.println(frog);
         Flightless penguin = new Flightless("Пингвин", 4, "Антарктида", "пешком и вплавь");
         System.out.println(penguin);
-        checkMethods(gazelle, tiger, frog, penguin);
+        Flying seagull = new Flying("Чайка", 3, "Прибалтика", "полеты");
+        System.out.println(seagull);
+        checkMethods(gazelle, tiger, frog, penguin, seagull);
     }
 
-    public static void checkMethods(Herbivore gazelle, Predator tiger, Amphibian frog, Flightless penguin) {
+    public static void checkMethods(Herbivore gazelle, Predator tiger, Amphibian frog, Flightless penguin, Flying seagull) {
         specialSymbol();
         gazelle.eat();
         gazelle.sleep();
@@ -37,6 +39,12 @@ public class Main {
         penguin.eat();
         penguin.hunt();
         penguin.walk();
+        specialSymbol();
+        seagull.go();
+        seagull.sleep();
+        seagull.eat();
+        seagull.hunt();
+        seagull.fly();
     }
 
     public static void specialSymbol() {
