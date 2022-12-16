@@ -1,5 +1,7 @@
 package skypro.java.course2.animals;
 
+import java.util.Objects;
+
 public class Herbivore extends Mammal {
     private final String typeOfFood;
 
@@ -27,6 +29,20 @@ public class Herbivore extends Mammal {
 
     public final String getTypeOfFood() {
         return typeOfFood;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Herbivore herbivore = (Herbivore) o;
+        return Objects.equals(typeOfFood, herbivore.typeOfFood);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeOfFood);
     }
 
     @Override

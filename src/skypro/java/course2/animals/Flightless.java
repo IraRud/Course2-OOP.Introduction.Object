@@ -1,5 +1,7 @@
 package skypro.java.course2.animals;
 
+import java.util.Objects;
+
 public class Flightless extends Bird{
     private final String typeOfMovement;
 
@@ -28,6 +30,20 @@ public class Flightless extends Bird{
 
     public final String getTypeOfMovement() {
         return typeOfMovement;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Flightless that = (Flightless) o;
+        return Objects.equals(typeOfMovement, that.typeOfMovement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), typeOfMovement);
     }
 
     @Override

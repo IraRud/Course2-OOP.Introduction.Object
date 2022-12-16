@@ -1,5 +1,7 @@
 package skypro.java.course2.animals;
 
+import java.util.Objects;
+
 public abstract class Mammal extends Animal{
     private String areal;
     private final double speed;
@@ -32,6 +34,20 @@ public abstract class Mammal extends Animal{
 
     public final double getSpeed() {
         return speed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Mammal mammal = (Mammal) o;
+        return Double.compare(mammal.speed, speed) == 0 && Objects.equals(areal, mammal.areal);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), areal, speed);
     }
 
     @Override

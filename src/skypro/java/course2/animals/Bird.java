@@ -1,5 +1,7 @@
 package skypro.java.course2.animals;
 
+import java.util.Objects;
+
 public abstract class Bird extends Animal{
     private String areal;
 
@@ -22,6 +24,20 @@ public abstract class Bird extends Animal{
 
     public final void setAreal(String areal) {
         this.areal = validateAreal(areal);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bird bird = (Bird) o;
+        return Objects.equals(areal, bird.areal);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), areal);
     }
 
     @Override
