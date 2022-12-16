@@ -9,7 +9,7 @@ public class Herbivore extends Mammal {
     }
 
     protected void graze() {
-        System.out.println("Травоядное пасется! Значит, " + getName()+ " пасется.");
+        System.out.println("Травоядные пасутся! Значит, " + getName()+ " пасется.");
     }
     @Override
     protected void eat() {

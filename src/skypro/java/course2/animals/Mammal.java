@@ -11,7 +11,7 @@ public abstract class Mammal extends Animal{
     }
 
     protected void walk() {
-        System.out.println("Млекопитающее гуляет! Сейчас " + getName() + " гуляет!");
+        System.out.println("Млекопитающее гуляет! Сейчас " + getName() + " гуляет.");
     }
 
     private String validateAreal(String areal) {
