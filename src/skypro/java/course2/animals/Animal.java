@@ -24,7 +24,7 @@ public abstract class Animal {
     }
 
     private int validateAge(int age) {
-        return age < 0 ? 0 : age;
+        return age < 0 || age > 150 ? 0 : age;
     }
 
     public final String getName() {
