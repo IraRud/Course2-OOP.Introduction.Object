@@ -11,6 +11,7 @@ public class Predator extends Mammal {
     protected void hunt() {
         System.out.println("Хищники охотятся! Значит, " + getName()+ " охотится.");
     }
+
     @Override
     protected void eat() {
         System.out.println("Хищники едят мясо! " + "Что предпочитает " + getName() + "? Видимо, это " + typeOfFood + ".");
