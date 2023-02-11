@@ -1,9 +1,5 @@
 package skypro.java.course2;
 
-import skypro.java.course2.transport.Car;   // импорт класса
-import skypro.java.course2.transport.Car.Key;   // импорт класса
-import skypro.java.course2.transport.Car.Insurance;   // импорт класса
-
 import java.time.LocalDate;
 
 public class Main {
