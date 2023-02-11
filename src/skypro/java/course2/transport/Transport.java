@@ -4,11 +4,11 @@ import static skypro.java.course2.transport.ValidateUtils.validateString;
 public abstract class Transport {
     final private String brand;   // марка
     final private String model;   // модель
-    final private int year;   // год выпуска
+/*    final private int year;   // год выпуска
     final private String country; // страна производства
     private String color;   // цвет кузова
     private double maxSpeed;    // максимальная скорость передвижения
-    private double fuelPercentage;  // количество топлива в процентах
+    private double fuelPercentage;  // количество топлива в процентах*/
 
     public Transport(String brand, String model, int year, String country, String color, double maxSpeed) {
         this(brand, model, year, country, "белый", 40, 100);
