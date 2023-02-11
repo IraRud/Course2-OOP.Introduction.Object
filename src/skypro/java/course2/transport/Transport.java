@@ -22,6 +22,16 @@ public abstract class Transport {
     }
     // endregion
 
+    //region методы, к-ые имеет каждое авто
+    protected void startMoving() {
+        System.out.println(getBrand() + " " + getModel() + " начианет движение.");
+    }
+
+    protected void finishMoving() {
+        System.out.println(getBrand() + " " + getModel() + " заканчивает движение.");
+    }
+    //endregion
+
     public String getBrand() {
         return brand;
     }

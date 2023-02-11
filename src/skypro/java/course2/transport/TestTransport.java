@@ -1,8 +1,5 @@
 package skypro.java.course2.transport;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
     public static void main(String[] args) {
@@ -16,5 +13,9 @@ public class TestTransport {
         for (Transport transport : transports) {
             System.out.println(transport);
         }
+
+        transports[transports.length - 1].startMoving();
+        transports[0].finishMoving();
+
     }
 }
