@@ -4,7 +4,8 @@ public interface Competing {    //"Соревнующийся"
 
     void pitStop(); // пит-стоп
 
-    void bestLapTime(); // лучшее время прохождения круга
+    void bestLapTime(int seconds); // лучшее время прохождения круга
 
-    double maxSpeed();  // максимальная скорость
+    void maxSpeed(double speed);  // максимальная скорость
+
 }

@@ -1,6 +1,6 @@
 package skypro.java.course2.transport;
 
-public class Car extends Transport implements Competing{ // наследует класс Car и расширяет интерфейс Competing
+public class Car extends Transport implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
 
     public Car (String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
@@ -20,17 +20,18 @@ public class Car extends Transport implements Competing{ // наследует �
     //region переопределение методов интерфейса
     @Override
     public void pitStop() {
-
+        System.out.println("Легковушке " + getBrand() + " " + getModel() + " срочно нужен пит-стоп!");
     }
 
     @Override
-    public void bestLapTime() {
-
+    public void bestLapTime(int seconds) {
+        System.out.println("Лучшее время прохождения легковушки " + getBrand() + " " + getModel() + " - "
+                + seconds / 60 + " м, " + seconds % 60 +" с");
     }
 
     @Override
-    public double maxSpeed() {
-        return 0;
+    public void maxSpeed(double speed) {
+        System.out.println("Лучшая скорость легковушки " + getBrand() + " " + getModel() + " - " + speed + " км/ч");
     }
     //endregion
 }
