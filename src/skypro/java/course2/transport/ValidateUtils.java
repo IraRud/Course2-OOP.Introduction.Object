@@ -6,7 +6,7 @@ public class ValidateUtils {
         return value == null || value.isBlank() || value.isEmpty() ? substitution : value;   // если null и пустые строки
     }
 
-/*    public static double validateDoubleEngineVolume(double value, double substitution, double min, double max) {    // проверка для объема двигателя
-        return value <= min || value >= max ? substitution : value;
-    }*/
+    public static Boolean validateBoolean (Boolean value, Boolean substitution) {    // проверка для строковых значений
+        return value == null ? substitution : value;   // если null и пустые строки
+    }
 }
