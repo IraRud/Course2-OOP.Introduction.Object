@@ -32,6 +32,6 @@ public class DriverCategoryB <B extends Car> extends Driver   {
 
     @Override
     public String toString() {
-        return "Водитель категории В. " + super.toString();
+        return "Водитель категории В (легковушка). " + super.toString();
     }
 }

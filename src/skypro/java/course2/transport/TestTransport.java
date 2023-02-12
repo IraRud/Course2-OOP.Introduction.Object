@@ -1,6 +1,7 @@
 package skypro.java.course2.transport;
 
 import skypro.java.course2.transport.drivers.DriverCategoryB;
+import skypro.java.course2.transport.drivers.DriverCategoryC;
 
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
@@ -37,6 +38,10 @@ public class TestTransport {
         ivanIvanov.driveCar(secondCar);
         ivanIvanov.refuel();
 
+        DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
+        System.out.println(larisaPestrisova);
+        larisaPestrisova.driveTruck(firstTruck);
+        larisaPestrisova.startMoving();
     }
 
     // проверка методов из родительского класса
