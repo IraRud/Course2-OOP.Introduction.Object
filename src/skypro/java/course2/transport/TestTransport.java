@@ -1,5 +1,7 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.drivers.DriverCategoryB;
+
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
     public static void main(String[] args) {
@@ -9,7 +11,8 @@ public class TestTransport {
         };
 
         checkClassMethods(transports);  // проверка методов из родительского класса
-        specialSymbol();
+
+        printSpecialSymbol();
 
         // проверка переопределенных методов интерфейса
         Transport firstCar = new Car("Seat", "", 2);
@@ -26,6 +29,14 @@ public class TestTransport {
         firstBus.maxSpeed(70);
         firstBus.pitStop();
 
+        printSpecialSymbol();
+
+        // проверка дженериков
+        DriverCategoryB<Car> ivanIvanov = new DriverCategoryB<>("Иванов Иван Иванович", true, 3);
+        System.out.println(ivanIvanov);
+        ivanIvanov.driveCar(secondCar);
+        ivanIvanov.refuel();
+
     }
 
     // проверка методов из родительского класса
@@ -37,7 +48,7 @@ public class TestTransport {
         }
     }
 
-    public static void specialSymbol() {
+    public static void printSpecialSymbol() {
         System.out.println("--------------- + + + ---------------");
     }
 

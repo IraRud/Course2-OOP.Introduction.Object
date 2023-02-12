@@ -1,5 +1,7 @@
 package skypro.java.course2.transport.drivers;
 
+import skypro.java.course2.transport.Car;
+
 import static skypro.java.course2.transport.ValidateUtils.validateBoolean;
 import static skypro.java.course2.transport.ValidateUtils.validateString;
 
@@ -22,7 +24,7 @@ public abstract class Driver {
 
     public abstract void stopMoving(); // остановиться
 
-    public abstract void refuelTransport(); // заправить авто
+    public abstract void refuel(); // заправить авто
 
     //region ГЕТТЕРЫ И СЕТТЕРЫ
     public String getFullName() {
@@ -48,6 +50,6 @@ public abstract class Driver {
 
     @Override
     public String toString() {
-        return "ФИО:" + fullName + ", наличие водительских прав: " + driversLicense + ", стаж: " + experience;
+        return "ФИО: " + fullName + ", наличие водительских прав: " + driversLicense + ", стаж: " + experience + ".";
     }
 }
