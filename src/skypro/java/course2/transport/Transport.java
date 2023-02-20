@@ -1,49 +1,36 @@
 package skypro.java.course2.transport;
+
 import static skypro.java.course2.transport.ValidateUtils.validateString;
 
 public abstract class Transport {
     final private String brand;   // марка
-    final private String model;   // модель
-    final private int year;   // год выпуска
-    final private String country; // страна производства
-    private String color;   // цвет кузова
-    private double maxSpeed;    // максимальная скорость передвижения
-    private double fuelPercentage;  // количество топлива в процентах
+    private String model;   // модель, можно изменять
+    final private double engineVolume;    // объем двигателя в литрах
 
-    public Transport(String brand, String model, int year, String country, String color, double maxSpeed) {
-        this(brand, model, year, country, "белый", 40, 100);
-    }
-    public Transport(String brand, String model, int year, String country, String color, double maxSpeed, double fuelPercentage) {
+    public Transport(String brand, String model, double engineVolume) {
         this.brand = validateStringValue(brand);
         this.model = validateStringValue(model);
-        this.year = validateYear(year);
-        this.country = validateStringValue(country);
-        this.color = validateColor(color);
-        this.maxSpeed = validateSpeed(maxSpeed);
-        this.fuelPercentage = validateFuelPercentage(fuelPercentage);
+        this.engineVolume = validateEngineVolume(engineVolume);
     }
+
+    // region VALIDATION
+    // для разного типа авто - разный объем двигателя. отсюда разная проверка для наследников
+    protected abstract double validateEngineVolume(double engineVolume);
 
     private String validateStringValue(String value) {
         return validateString(value, "default");
     }
+    // endregion
 
-    private int validateYear(int year) {
-        return year <= 0 ? 2000 : year;
+    //region методы, к-ые имеет каждое авто
+    protected void startMoving() {
+        System.out.println(getBrand() + " " + getModel() + " начианет движение.");
     }
 
-    private String validateColor(String value) {
-        return validateString(value, "белый");
+    protected void finishMoving() {
+        System.out.println(getBrand() + " " + getModel() + " заканчивает движение.");
     }
-
-    private double validateSpeed(double maxSpeed) {
-        return maxSpeed < 40 ? 40 : maxSpeed;
-    }
-
-    private double validateFuelPercentage(double fuelPercentage) {
-        return fuelPercentage <= 0 || fuelPercentage > 100 ? 100 : fuelPercentage;
-    }
-
-    public abstract void refill();  // вывод на экран то, какими видами топлива заправляется транспорт, и установка значения поля в 100%
+    //endregion
 
     public String getBrand() {
         return brand;
@@ -53,41 +40,16 @@ public abstract class Transport {
         return model;
     }
 
-    public int getYear() {
-        return year;
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = validateColor(color);
-    }
-
-    public double getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(double maxSpeed) {
-        this.maxSpeed =  validateSpeed(maxSpeed);
-    }
-
-    public double getFuelPercentage() {
-        return fuelPercentage;
-    }
-
-    protected void setFuelPercentage(double fuelPercentage) {   // изменение доступно в классах наследниках
-        this.fuelPercentage = validateFuelPercentage(fuelPercentage);
+    public void setModel(String model) {
+        this.model = validateStringValue(model);
     }
 
     @Override
     public String toString() {
-        return brand + " " + model + ", " + year + " год выпуска, страна сборки — " + country + ", цвет кузова — " +
-                color + ", максимальная скорость передвижения — " + maxSpeed + " км/ч, количество топлива — " + fuelPercentage + "%.";
+        return "Бренд: "+ brand + ", модель: " + model + ", объем двигателя: " + engineVolume + " л.";
     }
 }
