@@ -1,4 +1,4 @@
-package skypro.java.course2.transport;
+package skypro.java.course2.transport.enums;
 
 public enum Capacity {   // перечисление по типу вместимости для автобусов (Bus)
     VERY_SMALL(0, 10),  // особо малая (до 10 мест)

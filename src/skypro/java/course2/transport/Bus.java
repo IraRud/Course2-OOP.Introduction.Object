@@ -1,5 +1,7 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.enums.Capacity;
+
 public class Bus extends Transport implements Competing { // наследует класс Transport и расширяет интерфейс Competing
 
     private final Capacity capacity;       // переменная для типа вместимости (из enum Capacity)

@@ -1,4 +1,4 @@
-package skypro.java.course2.transport;
+package skypro.java.course2.transport.enums;
 
 public enum LoadType {   // перечисление по типу грузоподъемности для грузовиков (Truck)
     N1(null, 3.5f),     // с полной массой до 3,5 тонн

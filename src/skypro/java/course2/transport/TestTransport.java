@@ -3,6 +3,9 @@ package skypro.java.course2.transport;
 import skypro.java.course2.transport.drivers.DriverCategoryB;
 import skypro.java.course2.transport.drivers.DriverCategoryC;
 import skypro.java.course2.transport.drivers.DriverCategoryD;
+import skypro.java.course2.transport.enums.BodyType;
+import skypro.java.course2.transport.enums.Capacity;
+import skypro.java.course2.transport.enums.LoadType;
 
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
@@ -21,19 +24,18 @@ public class TestTransport {
         ((Car) firstCar).pitStop(); */
 
         Car secondCar = new Car("Honda", "Model UU", 1, BodyType.SEDAN);
-        secondCar.bestLapTime(30);
         System.out.println(secondCar);
+        secondCar.bestLapTime(30);
 
         Truck firstTruck = new Truck("Газель", "Model 800", 7, LoadType.N1);
-        firstTruck.bestLapTime(250);
         System.out.println(firstTruck);
-/*         Truck secondTruck = new Truck("Газель", "Model 700", 0);
-        secondTruck.maxSpeed(100);*/
+/*        firstTruck.bestLapTime(250);
+        firstTruck.maxSpeed(100);*/
 
         Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0, Capacity.SMALL);
-        firstBus.maxSpeed(70);
         System.out.println(firstBus);
-        firstBus.pitStop();
+/*        firstBus.maxSpeed(70);
+        firstBus.pitStop();*/
 
         printSpecialSymbol();
 

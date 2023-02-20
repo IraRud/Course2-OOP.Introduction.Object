@@ -1,5 +1,7 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.enums.BodyType;
+
 public class Car extends Transport implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
 
     private final BodyType bodyType;       // переменная для типа кузова (из enum BodyType)

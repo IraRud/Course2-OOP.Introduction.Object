@@ -1,4 +1,4 @@
-package skypro.java.course2.transport;
+package skypro.java.course2.transport.enums;
 
 public enum BodyType {  // перечисление типа кузова для легковушек (Car)
     SEDAN("седан"),
