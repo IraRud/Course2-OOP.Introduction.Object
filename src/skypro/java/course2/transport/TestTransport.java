@@ -7,7 +7,7 @@ import skypro.java.course2.transport.drivers.DriverCategoryD;
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
     public static void main(String[] args) {
-        Transport[] transports = new Transport[]{
+/*        Transport[] transports = new Transport[]{
                 new Car("Audi", "Model YY", -1),
                 new Bus("Toyota Motor", "Model XX-xx", 70),
         };
@@ -18,18 +18,20 @@ public class TestTransport {
 
         // проверка переопределенных методов интерфейса
         Transport firstCar = new Car("Seat", "", 2);
-        ((Car) firstCar).pitStop();
-        Car secondCar = new Car("Honda", "Model UU", 1);
-        secondCar.bestLapTime(30);
+        ((Car) firstCar).pitStop(); */
 
-        Truck firstTruck = new Truck("Газель", "Model 800", 7);
+        Car secondCar = new Car("Honda", "Model UU", 1, BodyType.SEDAN);
+        secondCar.bestLapTime(30);
+        System.out.println(secondCar);
+
+/*        Truck firstTruck = new Truck("Газель", "Model 800", 7);
         firstTruck.bestLapTime(250);
         Truck secondTruck = new Truck("Газель", "Model 700", 0);
         secondTruck.maxSpeed(100);
 
         Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0);
         firstBus.maxSpeed(70);
-        firstBus.pitStop();
+        firstBus.pitStop();*/
 
         printSpecialSymbol();
 
@@ -39,7 +41,7 @@ public class TestTransport {
         ivanIvanov.driveCar(secondCar);
         ivanIvanov.refuel();
 
-        DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
+/*        DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
         System.out.println(larisaPestrisova);
         larisaPestrisova.driveTruck(firstTruck);
         larisaPestrisova.startMoving();
@@ -47,7 +49,7 @@ public class TestTransport {
         DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
         System.out.println(kovalVladislav);
         kovalVladislav.driveBus(firstBus);
-        kovalVladislav.stopMoving();
+        kovalVladislav.stopMoving();*/
     }
 
     // проверка методов из родительского класса

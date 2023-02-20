@@ -2,8 +2,11 @@ package skypro.java.course2.transport;
 
 public class Car extends Transport implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
 
-    public Car (String brand, String model, double engineVolume) {
+    private final BodyType bodyType;       // переменная для типа кузова (из enum BodyType)
+
+    public Car (String brand, String model, double engineVolume, BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
     }
 
     // переопределение проверки объема двигателя
@@ -12,9 +15,13 @@ public class Car extends Transport implements Competing{ // наследует �
         return engineVolume <= 0 || engineVolume >= 1.5 ? 0.5 : engineVolume;
     }
 
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
     @Override
     public String toString() {
-        return "Легковушка. " + super.toString();
+        return "Легковушка. " + super.toString() + " " + getBodyType();
     }
 
     //region переопределение методов интерфейса
