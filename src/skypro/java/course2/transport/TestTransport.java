@@ -28,11 +28,12 @@ public class TestTransport {
         firstTruck.bestLapTime(250);
         System.out.println(firstTruck);
 /*         Truck secondTruck = new Truck("Газель", "Model 700", 0);
-        secondTruck.maxSpeed(100);
+        secondTruck.maxSpeed(100);*/
 
-        Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0);
+        Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0, Capacity.SMALL);
         firstBus.maxSpeed(70);
-        firstBus.pitStop();*/
+        System.out.println(firstBus);
+        firstBus.pitStop();
 
         printSpecialSymbol();
 
@@ -47,10 +48,10 @@ public class TestTransport {
         larisaPestrisova.driveTruck(firstTruck);
         larisaPestrisova.startMoving();
 
-/*         DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
+         DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
         System.out.println(kovalVladislav);
         kovalVladislav.driveBus(firstBus);
-        kovalVladislav.stopMoving();*/
+        kovalVladislav.stopMoving();
     }
 
     // проверка методов из родительского класса
