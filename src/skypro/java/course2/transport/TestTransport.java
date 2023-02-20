@@ -24,9 +24,10 @@ public class TestTransport {
         secondCar.bestLapTime(30);
         System.out.println(secondCar);
 
-/*        Truck firstTruck = new Truck("Газель", "Model 800", 7);
+        Truck firstTruck = new Truck("Газель", "Model 800", 7, LoadType.N1);
         firstTruck.bestLapTime(250);
-        Truck secondTruck = new Truck("Газель", "Model 700", 0);
+        System.out.println(firstTruck);
+/*         Truck secondTruck = new Truck("Газель", "Model 700", 0);
         secondTruck.maxSpeed(100);
 
         Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0);
@@ -41,12 +42,12 @@ public class TestTransport {
         ivanIvanov.driveCar(secondCar);
         ivanIvanov.refuel();
 
-/*        DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
+       DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
         System.out.println(larisaPestrisova);
         larisaPestrisova.driveTruck(firstTruck);
         larisaPestrisova.startMoving();
 
-        DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
+/*         DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
         System.out.println(kovalVladislav);
         kovalVladislav.driveBus(firstBus);
         kovalVladislav.stopMoving();*/
