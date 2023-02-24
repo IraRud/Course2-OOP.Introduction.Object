@@ -22,10 +22,22 @@ public class Truck extends Transport implements Competing { // наследуе�
         return loadType;
     }
 
+    //region переопределение методов родительского класса
     @Override
     protected Type getType() {   // переопределение метода, возвразщает тип TRUCK (т.к. Truck всегда грузовик)
         return Type.TRUCK;
     }
+
+    @Override
+    protected void printType() {   // переопределение метода, возвразщает информацию о типе грузоподъемности
+        if (loadType == null) {
+            System.out.println("Данных по транспортному средству недостаточно!");
+        } else {
+            System.out.println(getType() + ". " + getLoadType());
+        }
+    }
+    //endregion
+
 
     @Override
     public String toString() {

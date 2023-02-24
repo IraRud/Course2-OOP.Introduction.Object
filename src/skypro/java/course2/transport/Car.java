@@ -23,10 +23,21 @@ public class Car extends Transport implements Competing{ // наследует �
         return bodyType;
     }
 
+    //region переопределение методов родительского класса
     @Override
     protected Type getType() {  // переопределение метода, возвразщает тип CAR (т.к. Car всегда легковушка)
         return Type.CAR;
     }
+
+    @Override
+    protected void printType() {   // переопределение метода, возвразщает информацию о типе кузова
+        if (bodyType == null) {
+            System.out.println("Данных по транспортному средству недостаточно!");
+        } else {
+            System.out.println(getType() + ". " + getBodyType());
+        }
+    }
+    //endregion
 
     @Override
     public String toString() {

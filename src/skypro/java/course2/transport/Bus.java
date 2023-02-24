@@ -22,11 +22,21 @@ public class Bus extends Transport implements Competing { // наследует 
         return capacity;
     }
 
+    //region переопределение методов родительского класса
     @Override
     protected Type getType() {   // переопределение метода, возвразщает тип BUS (т.к. Bus всегда грузовик)
         return Type.BUS;
     }
 
+    @Override
+    protected void printType() {   // переопределение метода, возвразщает информацию о типе вместимости
+        if (capacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно!");
+        } else {
+            System.out.println(getType() + ". " + getCapacity());
+        }
+    }
+    //endregion
     @Override
     public String toString() {
         return getType() + ". " + super.toString() + " " + getCapacity();

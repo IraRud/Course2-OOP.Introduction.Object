@@ -27,14 +27,19 @@ public class TestTransport {
         System.out.println(secondCar);
         secondCar.bestLapTime(30);
         System.out.println(secondCar.getType());
+        secondCar.printType();
 
         Truck firstTruck = new Truck("Газель", "Model 800", 7, LoadType.N1);
         System.out.println(firstTruck);
+        System.out.println(firstTruck.getType());
+        firstTruck.printType();
 /*        firstTruck.bestLapTime(250);
         firstTruck.maxSpeed(100);*/
 
         Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0, Capacity.SMALL);
         System.out.println(firstBus);
+        System.out.println(firstBus.getType());
+        firstBus.printType();
 /*        firstBus.maxSpeed(70);
         firstBus.pitStop();*/
 
