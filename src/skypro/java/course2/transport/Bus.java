@@ -1,6 +1,7 @@
 package skypro.java.course2.transport;
 
 import skypro.java.course2.transport.enums.Capacity;
+import skypro.java.course2.transport.enums.Type;
 
 public class Bus extends Transport implements Competing { // наследует класс Transport и расширяет интерфейс Competing
 
@@ -22,8 +23,13 @@ public class Bus extends Transport implements Competing { // наследует 
     }
 
     @Override
+    protected Type getType() {   // переопределение метода, возвразщает тип BUS (т.к. Bus всегда грузовик)
+        return Type.BUS;
+    }
+
+    @Override
     public String toString() {
-        return "Автобус. " + super.toString() + " " + getCapacity();
+        return getType() + ". " + super.toString() + " " + getCapacity();
     }
 
     //region переопределение методов интерфейса

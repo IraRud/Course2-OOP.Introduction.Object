@@ -26,6 +26,7 @@ public class TestTransport {
         Car secondCar = new Car("Honda", "Model UU", 1, BodyType.SEDAN);
         System.out.println(secondCar);
         secondCar.bestLapTime(30);
+        System.out.println(secondCar.getType());
 
         Truck firstTruck = new Truck("Газель", "Model 800", 7, LoadType.N1);
         System.out.println(firstTruck);

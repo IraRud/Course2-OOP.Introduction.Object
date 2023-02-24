@@ -2,10 +2,12 @@ package skypro.java.course2.transport;
 
 import static skypro.java.course2.transport.ValidateUtils.validateString;
 
+import skypro.java.course2.transport.enums.Type;
+
 public abstract class Transport {
     final private String brand;   // марка
     private String model;   // модель, можно изменять
-    final private double engineVolume;    // объем двигателя в литрах
+    private final double engineVolume;    // объем двигателя в литрах
 
     public Transport(String brand, String model, double engineVolume) {
         this.brand = validateStringValue(brand);
@@ -31,6 +33,9 @@ public abstract class Transport {
         System.out.println(getBrand() + " " + getModel() + " заканчивает движение.");
     }
     //endregion
+
+    // необходимо переопределить в наследниках, возвращает тип транспортного средства (легковая машина, грузовик, автобус)
+    protected abstract Type getType();
 
     public String getBrand() {
         return brand;

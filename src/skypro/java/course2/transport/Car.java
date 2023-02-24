@@ -1,9 +1,11 @@
 package skypro.java.course2.transport;
 
 import skypro.java.course2.transport.enums.BodyType;
+import skypro.java.course2.transport.enums.Type;
 
 public class Car extends Transport implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
 
+    private final Type type = Type.CAR;
     private final BodyType bodyType;       // переменная для типа кузова (из enum BodyType)
 
     public Car (String brand, String model, double engineVolume, BodyType bodyType) {
@@ -22,8 +24,13 @@ public class Car extends Transport implements Competing{ // наследует �
     }
 
     @Override
+    protected Type getType() {  // переопределение метода, возвразщает тип CAR (т.к. Car всегда легковушка)
+        return Type.CAR;
+    }
+
+    @Override
     public String toString() {
-        return "Легковушка. " + super.toString() + " " + getBodyType();
+        return getType() + ". " + super.toString() + " " + getBodyType();
     }
 
     //region переопределение методов интерфейса
