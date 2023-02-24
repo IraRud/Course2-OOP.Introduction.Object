@@ -56,14 +56,14 @@ public class TestTransport {
         kovalVladislav.stopMoving();
     }
 
-    // проверка методов из родительского класса
+/*    // проверка методов из родительского класса
     public static void checkClassMethods(Transport... transports) {
         for (Transport transport : transports) {
             System.out.println(transport);
             transport.startMoving();
             transport.finishMoving();
         }
-    }
+    }*/
 
     public static void printSpecialSymbol() {
         System.out.println("--------------- + + + ---------------");
