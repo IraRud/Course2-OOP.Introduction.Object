@@ -36,7 +36,14 @@ public class Bus extends Transport implements Competing { // наследует 
             System.out.println(getType() + ". " + getCapacity());
         }
     }
+
+    // переопределение метода «Пройти диагностику», для автобуса необходимо выкинуть исключение
+    @Override
+    protected void passDiagnostics() {
+
+    }
     //endregion
+
     @Override
     public String toString() {
         return getType() + ". " + super.toString() + " " + getCapacity();

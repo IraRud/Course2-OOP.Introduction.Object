@@ -34,6 +34,7 @@ public abstract class Transport {
     }
     //endregion
 
+    //region переопределяемые методы
     // необходимо переопределить в наследниках, возвращает тип транспортного средства (легковая машина, грузовик, автобус)
     protected abstract Type getType();
 
@@ -42,8 +43,9 @@ public abstract class Transport {
     protected abstract void printType();
 
     // необходимо переопределить в наследниках
-    // новый метод «Пройти диагностику»
+    // новый метод «Пройти диагностику» (урок Exception)
     protected abstract void passDiagnostics();
+    //endregion
 
     public String getBrand() {
         return brand;
