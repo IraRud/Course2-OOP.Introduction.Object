@@ -1,9 +1,15 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.enums.Capacity;
+import skypro.java.course2.transport.enums.Type;
+
 public class Bus extends Transport implements Competing { // наследует класс Transport и расширяет интерфейс Competing
 
-    public Bus (String brand, String model, double engineVolume) {
+    private final Capacity capacity;       // переменная для типа вместимости (из enum Capacity)
+
+    public Bus (String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
     }
 
     // переопределение проверки объема двигателя
@@ -12,9 +18,28 @@ public class Bus extends Transport implements Competing { // наследует 
         return engineVolume <= 1.5 || engineVolume >= 3.5 ? 2.5 : engineVolume;
     }
 
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    //region переопределение методов родительского класса
+    @Override
+    protected Type getType() {   // переопределение метода, возвразщает тип BUS (т.к. Bus всегда грузовик)
+        return Type.BUS;
+    }
+
+    @Override
+    protected void printType() {   // переопределение метода, возвразщает информацию о типе вместимости
+        if (capacity == null) {
+            System.out.println("Данных по транспортному средству недостаточно!");
+        } else {
+            System.out.println(getType() + ". " + getCapacity());
+        }
+    }
+    //endregion
     @Override
     public String toString() {
-        return "Автобус. " + super.toString();
+        return getType() + ". " + super.toString() + " " + getCapacity();
     }
 
     //region переопределение методов интерфейса
