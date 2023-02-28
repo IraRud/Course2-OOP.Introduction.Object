@@ -37,6 +37,12 @@ public class Car extends Transport implements Competing{ // наследует �
             System.out.println(getType() + ". " + getBodyType());
         }
     }
+
+    // переопределение метода «Пройти диагностику», для легковушки достаточно прсто сообщения
+    @Override
+    protected void passDiagnostics() {
+        System.out.println(getType() + " " + getBrand() + " " + getModel() + " может проходить диагностику.");
+    }
     //endregion
 
     @Override

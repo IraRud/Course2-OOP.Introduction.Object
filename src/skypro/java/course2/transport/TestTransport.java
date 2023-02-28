@@ -25,41 +25,49 @@ public class TestTransport {
 
         Car secondCar = new Car("Honda", "Model UU", 1, BodyType.SEDAN);
         System.out.println(secondCar);
-        secondCar.bestLapTime(30);
+/*        secondCar.bestLapTime(30);
         System.out.println(secondCar.getType());
-        secondCar.printType();
+        secondCar.printType();*/
 
         Truck firstTruck = new Truck("Газель", "Model 800", 7, LoadType.N1);
         System.out.println(firstTruck);
-        System.out.println(firstTruck.getType());
+/*         System.out.println(firstTruck.getType());
         firstTruck.printType();
-/*        firstTruck.bestLapTime(250);
+       firstTruck.bestLapTime(250);
         firstTruck.maxSpeed(100);*/
 
         Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0, Capacity.SMALL);
         System.out.println(firstBus);
-        System.out.println(firstBus.getType());
+/*        System.out.println(firstBus.getType());
         firstBus.printType();
-/*        firstBus.maxSpeed(70);
+        firstBus.maxSpeed(70);
         firstBus.pitStop();*/
 
-        printSpecialSymbol();
+/*        printSpecialSymbol();
 
-        // проверка дженериков
+        //region проверка дженериков
         DriverCategoryB<Car> ivanIvanov = new DriverCategoryB<>("Иванов Иван Иванович", true, 3);
         System.out.println(ivanIvanov);
         ivanIvanov.driveCar(secondCar);
         ivanIvanov.refuel();
 
-       DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
+        DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
         System.out.println(larisaPestrisova);
         larisaPestrisova.driveTruck(firstTruck);
         larisaPestrisova.startMoving();
 
-         DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
+        DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
         System.out.println(kovalVladislav);
         kovalVladislav.driveBus(firstBus);
-        kovalVladislav.stopMoving();
+        kovalVladislav.stopMoving();*/
+        //endregion
+
+        printSpecialSymbol();
+        // метод passDiagnostics необходимо вызывать через статический метод checkPassDiagnostics()
+        checkPassDiagnostics(firstBus);
+        checkPassDiagnostics(secondCar);
+        checkPassDiagnostics(firstTruck);
+
     }
 
 /*    // проверка методов из родительского класса
@@ -70,6 +78,18 @@ public class TestTransport {
             transport.finishMoving();
         }
     }*/
+
+    // метод для проверки метода <>.passDiagnostics()
+    public static void checkPassDiagnostics(Transport transport) {
+        try {
+            transport.passDiagnostics();
+        } catch (TransportTypeException e) {
+            // вывод сообщения об ошибке (с подсветкой)
+            System.err.println(e.getMessage() + " Автобус " + transport.getBrand() + " " + transport.getModel()
+                    + " не может проходить диагностику!");
+        }
+    }
+
 
     public static void printSpecialSymbol() {
         System.out.println("--------------- + + + ---------------");
