@@ -63,9 +63,11 @@ public class TestTransport {
         //endregion
 
         printSpecialSymbol();
-        secondCar.passDiagnostics();
-        firstTruck.passDiagnostics();
-        firstBus.passDiagnostics();
+        // метод passDiagnostics необходимо вызывать через статический метод checkPassDiagnostics()
+        checkPassDiagnostics(firstBus);
+        checkPassDiagnostics(secondCar);
+        checkPassDiagnostics(firstTruck);
+
     }
 
 /*    // проверка методов из родительского класса
@@ -76,6 +78,18 @@ public class TestTransport {
             transport.finishMoving();
         }
     }*/
+
+    // метод для проверки метода <>.passDiagnostics()
+    public static void checkPassDiagnostics(Transport transport) {
+        try {
+            transport.passDiagnostics();
+        } catch (TransportTypeException e) {
+            // вывод сообщения об ошибке (с подсветкой)
+            System.err.println(e.getMessage() + " Автобус " + transport.getBrand() + " " + transport.getModel()
+                    + " не может проходить диагностику!");
+        }
+    }
+
 
     public static void printSpecialSymbol() {
         System.out.println("--------------- + + + ---------------");

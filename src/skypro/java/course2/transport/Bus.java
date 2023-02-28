@@ -39,8 +39,8 @@ public class Bus extends Transport implements Competing { // наследует 
 
     // переопределение метода «Пройти диагностику», для автобуса необходимо выкинуть исключение
     @Override
-    protected void passDiagnostics() {
-
+    protected void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы диагностику проходить не должны!");
     }
     //endregion
 

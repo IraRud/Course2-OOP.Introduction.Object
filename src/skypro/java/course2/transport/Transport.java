@@ -1,7 +1,6 @@
 package skypro.java.course2.transport;
 
 import static skypro.java.course2.transport.ValidateUtils.validateString;
-
 import skypro.java.course2.transport.enums.Type;
 
 public abstract class Transport {
@@ -42,9 +41,9 @@ public abstract class Transport {
     // (в случае легковых это будет информация о типе кузова, у автобуса - вместимость и т.д. )
     protected abstract void printType();
 
-    // необходимо переопределить в наследниках
-    // новый метод «Пройти диагностику» (урок Exception)
-    protected abstract void passDiagnostics();
+    // необходимо переопределить в наследниках (урок Exception)
+    // «Пройти диагностику». в сигнатуре указано исключение (может не использоваться в наследниках, если нет необходимости)
+    protected abstract void passDiagnostics() throws TransportTypeException;
     //endregion
 
     public String getBrand() {
