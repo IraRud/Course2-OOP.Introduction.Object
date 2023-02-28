@@ -41,6 +41,10 @@ public abstract class Transport {
     // (в случае легковых это будет информация о типе кузова, у автобуса - вместимость и т.д. )
     protected abstract void printType();
 
+    // необходимо переопределить в наследниках
+    // новый метод «Пройти диагностику»
+    protected abstract void passDiagnostics();
+
     public String getBrand() {
         return brand;
     }
