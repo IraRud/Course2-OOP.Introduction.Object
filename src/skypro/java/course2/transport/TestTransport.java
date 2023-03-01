@@ -43,10 +43,15 @@ public class TestTransport {
         System.out.println("Механики автобусов: ");
         printMechanic(mechanicsListForBus);
 
+        // водители
+        DriverCategoryB<Car> ivanIvanov = new DriverCategoryB<>("Иванов Иван Иванович", true, 3);
+        DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
+        DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
+
         // список для соревнующихся машин
-        Car thirdCar = new Car("Kia", "Model KK", 3, BodyType.VAN, mechanicsListForCar);
-        Truck secondTruck = new Truck("Газель", "Model 1070", 10, LoadType.N2, mechanicsListForTruck);
-        Bus secondBus = new Bus("АВТОбусы", "Мосгортрнас", 0, Capacity.BIG, mechanicsListForBus);
+        Car thirdCar = new Car("Kia", "Model KK", 3, BodyType.VAN, ivanIvanov, mechanicsListForCar);
+        Truck secondTruck = new Truck("Газель", "Model 1070", 10, LoadType.N2, larisaPestrisova, mechanicsListForTruck);
+        Bus secondBus = new Bus("АВТОбусы", "Мосгортрнас", 0, Capacity.BIG, kovalVladislav, mechanicsListForBus);
         List<Transport> participantsOfCompetition = new ArrayList<>();
         participantsOfCompetition.add(thirdCar);
         participantsOfCompetition.add(secondTruck);
@@ -58,6 +63,9 @@ public class TestTransport {
 
         // вывод листа механиков для конкретного авто
         printMechanic(thirdCar);
+
+        // вывод водителя авто
+        printNameOfDriver(thirdCar);
         //endregion
 
 /*
@@ -99,22 +107,21 @@ public class TestTransport {
 
         printSpecialSymbol();
 
-        //region проверка дженериков
-        DriverCategoryB<Car> ivanIvanov = new DriverCategoryB<>("Иванов Иван Иванович", true, 3);
+/*
+        //region проверка дженериков (водители созданы выше для баланса вселенной)
         System.out.println(ivanIvanov);
         ivanIvanov.driveCar(thirdCar);
-/*        ivanIvanov.refuel();*/
+        ivanIvanov.refuel();
 
-        DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
         System.out.println(larisaPestrisova);
         larisaPestrisova.driveTruck(secondTruck);
-/*        larisaPestrisova.startMoving();*/
+        larisaPestrisova.startMoving();
 
-        DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
         System.out.println(kovalVladislav);
         kovalVladislav.driveBus(secondBus);
-/*        kovalVladislav.stopMoving();*/
+        kovalVladislav.stopMoving();
         //endregion
+*/
 
 /*       printSpecialSymbol();
         // метод passDiagnostics необходимо вызывать через статический метод checkPassDiagnostics()
@@ -164,8 +171,9 @@ public class TestTransport {
                 + " обслуживается механиками: " + transport.getMechanicList());
     }
 
-    public static void printNameOfDriver() {
-
+    public static void printNameOfDriver(Transport transport) {
+        System.out.println("Водителем " + transport.getBrand() + " " + transport.getModel()
+                + " является " + transport.getDriver().getFullName() + ".");
     }
 
     public static void printSpecialSymbol() {

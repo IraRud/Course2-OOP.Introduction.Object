@@ -1,20 +1,24 @@
 package skypro.java.course2.transport;
 
 import static skypro.java.course2.transport.ValidateUtils.validateString;
+
+import skypro.java.course2.transport.drivers.Driver;
 import skypro.java.course2.transport.enums.Type;
 
 import java.util.List;
 
-public abstract class Transport {
+public abstract class Transport <D extends Driver> {
     final private String brand;   // марка
     private String model;   // модель, можно изменять
     private final double engineVolume;    // объем двигателя в литрах
     private List<Mechanic> mechanicList;    // переменная для списка механиков
+    private D driver;
 
-    public Transport(String brand, String model, double engineVolume, List<Mechanic> mechanicList) {
+    public Transport(String brand, String model, double engineVolume, D driver, List<Mechanic> mechanicList) {
         this.brand = validateStringValue(brand);
         this.model = validateStringValue(model);
         this.engineVolume = validateEngineVolume(engineVolume);
+        this.driver = driver;
         this.mechanicList = mechanicList;
     }
 
@@ -60,6 +64,14 @@ public abstract class Transport {
 
     public double getEngineVolume() {
         return engineVolume;
+    }
+
+    public D getDriver() {
+        return driver;
+    }
+
+    public void setDriver(D driver) {
+        this.driver = driver;
     }
 
     public List<Mechanic> getMechanicList() {
