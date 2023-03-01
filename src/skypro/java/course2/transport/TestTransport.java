@@ -25,6 +25,7 @@ public class TestTransport {
         mechanicsListForCar.add(valentina);
         // вывод механиков для легковых машин для проверки
         System.out.println("Механики легковых автомобилей: ");
+        checkList(mechanicsListForCar);
         printMechanic(mechanicsListForCar);
 
         // список механиков для грузовиков
@@ -34,6 +35,7 @@ public class TestTransport {
         mechanicsListForTruck.add(valentina);
         // вывод механиков для легковых машин для проверки
         System.out.println("Механики грузовиков: ");
+        checkList(mechanicsListForTruck);
         printMechanic(mechanicsListForTruck);
 
         // список механиков для автобусов
@@ -41,6 +43,7 @@ public class TestTransport {
         mechanicsListForBus.add(valentina);
         // вывод механиков для автобусов для проверки
         System.out.println("Механики автобусов: ");
+        checkList(mechanicsListForBus);
         printMechanic(mechanicsListForBus);
 
         // водители
@@ -59,6 +62,7 @@ public class TestTransport {
 
         // вывод участников гонки в консоль для проверки
         System.out.println("Список участников гонки: ");
+        checkList(participantsOfCompetition);
         printParticipantsOfCompetition(participantsOfCompetition);
 
         // вывод листа механиков для конкретного авто
@@ -103,11 +107,9 @@ public class TestTransport {
         firstBus.maxSpeed(70);
         firstBus.pitStop();
         //endregion
-*/
 
         printSpecialSymbol();
 
-/*
         //region проверка дженериков (водители созданы выше для баланса вселенной)
         System.out.println(ivanIvanov);
         ivanIvanov.driveCar(thirdCar);
@@ -150,6 +152,13 @@ public class TestTransport {
                     + " не может проходить диагностику!");
         }
     }*/
+
+    // метод для проверки списков, пустые не могут быть параметрами
+    public static void checkList(List list) {
+        if (list.isEmpty()) {
+            throw new IllegalArgumentException("Пустой лист");
+        }
+    }
 
     // метод для вывода участников гонки в консоль
     public static void printParticipantsOfCompetition(List<Transport> participantsOfCompetition) {
