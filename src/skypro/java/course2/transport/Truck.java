@@ -3,12 +3,14 @@ package skypro.java.course2.transport;
 import skypro.java.course2.transport.enums.LoadType;
 import skypro.java.course2.transport.enums.Type;
 
+import java.util.List;
+
 public class Truck extends Transport implements Competing { // наследует класс Transport и расширяет интерфейс Competing
 
     private final LoadType loadType;       // переменная для типа грузоподъемности (из enum LoadType)
 
-    public Truck (String brand, String model, double engineVolume, LoadType loadType) {
-        super(brand, model, engineVolume);
+    public Truck (String brand, String model, double engineVolume, LoadType loadType, List<Mechanic> mechanicList) {
+        super(brand, model, engineVolume, mechanicList);
         this.loadType = loadType;
     }
 

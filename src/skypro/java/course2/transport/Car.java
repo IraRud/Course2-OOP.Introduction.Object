@@ -3,13 +3,15 @@ package skypro.java.course2.transport;
 import skypro.java.course2.transport.enums.BodyType;
 import skypro.java.course2.transport.enums.Type;
 
+import java.util.List;
+
 public class Car extends Transport implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
 
     private final Type type = Type.CAR;
     private final BodyType bodyType;       // переменная для типа кузова (из enum BodyType)
 
-    public Car (String brand, String model, double engineVolume, BodyType bodyType) {
-        super(brand, model, engineVolume);
+    public Car (String brand, String model, double engineVolume, BodyType bodyType, List<Mechanic> mechanicList) {
+        super(brand, model, engineVolume, mechanicList);
         this.bodyType = bodyType;
     }
 

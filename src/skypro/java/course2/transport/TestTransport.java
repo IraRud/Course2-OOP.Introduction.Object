@@ -13,81 +13,115 @@ import java.util.List;
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
     public static void main(String[] args) {
-/*        Transport[] transports = new Transport[]{
-                new Car("Audi", "Model YY", -1),
-                new Bus("Toyota Motor", "Model XX-xx", 70),
-        };
 
+        //region (lesson 7) работа с коллекциями
+        printSpecialSymbol();
+
+        // список механиков для легковых машин
+        Mechanic oleg = new Mechanic("Олег", "Иванов", "");
+        Mechanic valentina = new Mechanic("Валентина", "Некрасова", "\"Починим все\"");
+        List<Mechanic> mechanicsListForCar = new ArrayList<>();
+        mechanicsListForCar.add(oleg);
+        mechanicsListForCar.add(valentina);
+        // вывод механиков для легковых машин для проверки
+        System.out.println("Механики легковых автомобилей: ");
+        printMechanic(mechanicsListForCar);
+
+        // список механиков для грузовиков
+        Mechanic nikita = new Mechanic("Никита", "Сергеев", "\"Покрышки\"");
+        List<Mechanic> mechanicsListForTruck = new ArrayList<>();
+        mechanicsListForTruck.add(nikita);
+        mechanicsListForTruck.add(valentina);
+        // вывод механиков для легковых машин для проверки
+        System.out.println("Механики грузовиков: ");
+        printMechanic(mechanicsListForTruck);
+
+        // список механиков для автобусов
+        List<Mechanic> mechanicsListForBus = new ArrayList<>();
+        mechanicsListForBus.add(valentina);
+        // вывод механиков для автобусов для проверки
+        System.out.println("Механики автобусов: ");
+        printMechanic(mechanicsListForBus);
+
+        // список для соревнующихся машин
+        Car thirdCar = new Car("Kia", "Model KK", 3, BodyType.VAN, mechanicsListForCar);
+        Truck secondTruck = new Truck("Газель", "Model 1070", 10, LoadType.N2, mechanicsListForTruck);
+        Bus secondBus = new Bus("АВТОбусы", "Мосгортрнас", 0, Capacity.BIG, mechanicsListForBus);
+        List<Transport> participantsOfCompetition = new ArrayList<>();
+        participantsOfCompetition.add(thirdCar);
+        participantsOfCompetition.add(secondTruck);
+        participantsOfCompetition.add(secondBus);
+
+        // вывод участников гонки в консоль для проверки
+        System.out.println("Список участников гонки: ");
+        printParticipantsOfCompetition(participantsOfCompetition);
+
+        // вывод листа механиков для конкретного авто
+        printMechanic(thirdCar);
+        //endregion
+
+/*
+        printSpecialSymbol();
+
+        Transport[] transports = new Transport[]{
+                new Car("Audi", "Model YY", -1, BodyType.VAN, mechanicsListForCar),
+                new Bus("Toyota Motor", "Model XX-xx", 70, Capacity.SMALL, mechanicsListForTruck),
+        };
         checkClassMethods(transports);  // проверка методов из родительского класса
 
         printSpecialSymbol();
 
-        // проверка переопределенных методов интерфейса
-        Transport firstCar = new Car("Seat", "", 2);
-        ((Car) firstCar).pitStop(); */
+        //region проверка переопределенных методов интерфейса
+        Transport firstCar = new Car("Seat", "", 2, BodyType.VAN, mechanicsListForCar);
+        ((Car) firstCar).pitStop();
 
-        Car secondCar = new Car("Honda", "Model UU", 1, BodyType.SEDAN);
+        Car secondCar = new Car("Honda", "Model UU", 1, BodyType.SEDAN, mechanicsListForCar);
         System.out.println(secondCar);
-/*        secondCar.bestLapTime(30);
+        secondCar.bestLapTime(30);
         System.out.println(secondCar.getType());
-        secondCar.printType();*/
+        secondCar.printType();
 
-        Truck firstTruck = new Truck("Газель", "Model 800", 7, LoadType.N1);
+        Truck firstTruck = new Truck("Газель", "Model 800", 7, LoadType.N1, mechanicsListForTruck);
         System.out.println(firstTruck);
-/*         System.out.println(firstTruck.getType());
+        System.out.println(firstTruck.getType());
         firstTruck.printType();
-       firstTruck.bestLapTime(250);
-        firstTruck.maxSpeed(100);*/
+        firstTruck.bestLapTime(250);
+        firstTruck.maxSpeed(100);
 
-        Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0, Capacity.SMALL);
+        Bus firstBus = new Bus("АвтоМир", "Мосгортрнас", 0, Capacity.SMALL, mechanicsListForBus);
         System.out.println(firstBus);
-/*        System.out.println(firstBus.getType());
+        System.out.println(firstBus.getType());
         firstBus.printType();
         firstBus.maxSpeed(70);
-        firstBus.pitStop();*/
+        firstBus.pitStop();
+        //endregion
+*/
 
-/*        printSpecialSymbol();
+        printSpecialSymbol();
 
         //region проверка дженериков
         DriverCategoryB<Car> ivanIvanov = new DriverCategoryB<>("Иванов Иван Иванович", true, 3);
         System.out.println(ivanIvanov);
-        ivanIvanov.driveCar(secondCar);
-        ivanIvanov.refuel();
+        ivanIvanov.driveCar(thirdCar);
+/*        ivanIvanov.refuel();*/
 
         DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
         System.out.println(larisaPestrisova);
-        larisaPestrisova.driveTruck(firstTruck);
-        larisaPestrisova.startMoving();
+        larisaPestrisova.driveTruck(secondTruck);
+/*        larisaPestrisova.startMoving();*/
 
         DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
         System.out.println(kovalVladislav);
-        kovalVladislav.driveBus(firstBus);
-        kovalVladislav.stopMoving();*/
+        kovalVladislav.driveBus(secondBus);
+/*        kovalVladislav.stopMoving();*/
         //endregion
 
-        printSpecialSymbol();
+/*       printSpecialSymbol();
         // метод passDiagnostics необходимо вызывать через статический метод checkPassDiagnostics()
-/*        checkPassDiagnostics(firstBus);
+        checkPassDiagnostics(firstBus);
         checkPassDiagnostics(secondCar);
-        checkPassDiagnostics(firstTruck);*/
-
-        // (lesson 7) работа с коллекциями
-        printSpecialSymbol();
-
-        // список для соревнующихся машин
-        List<Transport> participantsOfCompetition = new ArrayList<>();
-        Car thirdCar = new Car("Kia", "Model KK", 3, BodyType.VAN);
-        participantsOfCompetition.add(thirdCar);
-        participantsOfCompetition.add(secondCar);
-        participantsOfCompetition.add(firstTruck);
-        participantsOfCompetition.add(firstBus);
-        // вывод участников гонки в консоль для проверки
-        for (Transport transport : participantsOfCompetition) {
-            System.out.println(transport);
-        }
-        // тест класса мехников
-        Mechanic oleg = new Mechanic("Олег", "Иванов", "");
-        System.out.println(oleg);
+        checkPassDiagnostics(firstTruck);
+*/
     }
 
 /*    // проверка методов из родительского класса
@@ -97,10 +131,10 @@ public class TestTransport {
             transport.startMoving();
             transport.finishMoving();
         }
-    }*/
+    }
 
     // метод для проверки метода <>.passDiagnostics()
-/*    public static void checkPassDiagnostics(Transport transport) {
+    public static void checkPassDiagnostics(Transport transport) {
         try {
             transport.passDiagnostics();
         } catch (TransportTypeException e) {
@@ -110,6 +144,29 @@ public class TestTransport {
         }
     }*/
 
+    // метод для вывода участников гонки в консоль
+    public static void printParticipantsOfCompetition(List<Transport> participantsOfCompetition) {
+        for (Transport transport : participantsOfCompetition) {
+            System.out.println(transport);
+        }
+    }
+
+    // метод для вывода листа механиков по группам (легковушка, грузовик, автобус)
+    public static void printMechanic(List<Mechanic> mechanicList) {
+        for (Mechanic mechanic : mechanicList) {
+            System.out.println(mechanic);
+        }
+    }
+
+    // метод для вывода листа механиков для конкретного авто
+    public static void printMechanic(Transport transport) {
+        System.out.println(transport.getType() + " " + transport.getBrand() + " " + transport.getModel()
+                + " обслуживается механиками: " + transport.getMechanicList());
+    }
+
+    public static void printNameOfDriver() {
+
+    }
 
     public static void printSpecialSymbol() {
         System.out.println("--------------- + + + ---------------");

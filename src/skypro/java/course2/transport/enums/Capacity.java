@@ -25,7 +25,7 @@ public enum Capacity {   // перечисление по типу вмести�
     @Override
     public String toString() {
         return (lowCapacity == 0) ? "Вместимость до " + highCapacity + " человек"
-                : " Вместимость от " + lowCapacity + " человек " + ((highCapacity == 0) ? ""
+                : "Вместимость от " + lowCapacity + " человек " + ((highCapacity == 0) ? ""
                 : "до " + highCapacity + " человек");
     }
 }

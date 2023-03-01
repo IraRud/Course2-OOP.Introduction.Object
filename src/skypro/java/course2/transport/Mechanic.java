@@ -12,7 +12,22 @@ public class Mechanic {
     public Mechanic(String name, String surname, String company) {
         this.name = validateString(name, "No name");
         this.surname = validateString(surname, "No surname");
-        this.company = validateString(company, "No company");
+        this.company = validateCompanyValue(company);
+    }
+
+    // проверка для ввода компании
+    private String validateCompanyValue(String value) {
+        return validateString(value, "No company");
+    }
+
+    // метод для проведения техобслуживания
+    public void performMaintenance() {
+        System.out.println("Механик " + name + " " + surname + " из компании " + company + " проводит техобслуживание! ");
+    }
+
+    // метод для починки машины
+    public void fixCar() {
+        System.out.println("Механик " + name + " " + surname + " из компании " + company + " чинит транспорт! ");
     }
 
     public String getName() {
@@ -28,7 +43,7 @@ public class Mechanic {
     }
 
     public void setCompany(String company) {
-        this.company = validateString(company, "No company");
+        this.company = validateCompanyValue(company);
     }
 
     @Override

@@ -3,15 +3,19 @@ package skypro.java.course2.transport;
 import static skypro.java.course2.transport.ValidateUtils.validateString;
 import skypro.java.course2.transport.enums.Type;
 
+import java.util.List;
+
 public abstract class Transport {
     final private String brand;   // марка
     private String model;   // модель, можно изменять
     private final double engineVolume;    // объем двигателя в литрах
+    private List<Mechanic> mechanicList;    // переменная для списка механиков
 
-    public Transport(String brand, String model, double engineVolume) {
+    public Transport(String brand, String model, double engineVolume, List<Mechanic> mechanicList) {
         this.brand = validateStringValue(brand);
         this.model = validateStringValue(model);
         this.engineVolume = validateEngineVolume(engineVolume);
+        this.mechanicList = mechanicList;
     }
 
     // region VALIDATION
@@ -58,12 +62,20 @@ public abstract class Transport {
         return engineVolume;
     }
 
+    public List<Mechanic> getMechanicList() {
+        return mechanicList;
+    }
+
+    public void setMechanicList(List<Mechanic> mechanicList) {
+        this.mechanicList = mechanicList;
+    }
+
     public void setModel(String model) {
         this.model = validateStringValue(model);
     }
 
     @Override
     public String toString() {
-        return "Бренд: "+ brand + ", модель: " + model + ", объем двигателя: " + engineVolume + " л.";
+        return "Бренд: " + brand + ", модель: " + model + ", объем двигателя: " + engineVolume + " л.";
     }
 }

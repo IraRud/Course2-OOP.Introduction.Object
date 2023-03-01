@@ -23,7 +23,7 @@ public enum LoadType {   // перечисление по типу грузоп�
     @Override
     public String toString() {
         return (lowWeight == null) ? "Грузоподъемность до " + highWeight + " тонн"
-                : " Грузоподъемность от " + lowWeight + " тонн " + ((highWeight == null) ? ""
+                : "Грузоподъемность от " + lowWeight + " тонн " + ((highWeight == null) ? ""
                 : "до " + highWeight + " тонн");
     }
 }
