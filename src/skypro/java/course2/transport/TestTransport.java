@@ -82,9 +82,12 @@ public class TestTransport {
         participantsOfCompetition.add(firstTruck);
         participantsOfCompetition.add(firstBus);
         // вывод участников гонки в консоль для проверки
-        for (int i = 0; i < participantsOfCompetition.size(); i++) {
-            System.out.println(participantsOfCompetition.get(i));
+        for (Transport transport : participantsOfCompetition) {
+            System.out.println(transport);
         }
+        // тест класса мехников
+        Mechanic oleg = new Mechanic("Олег", "Иванов", "");
+        System.out.println(oleg);
     }
 
 /*    // проверка методов из родительского класса
@@ -97,7 +100,7 @@ public class TestTransport {
     }*/
 
     // метод для проверки метода <>.passDiagnostics()
-    public static void checkPassDiagnostics(Transport transport) {
+/*    public static void checkPassDiagnostics(Transport transport) {
         try {
             transport.passDiagnostics();
         } catch (TransportTypeException e) {
@@ -105,7 +108,7 @@ public class TestTransport {
             System.err.println(e.getMessage() + " Автобус " + transport.getBrand() + " " + transport.getModel()
                     + " не может проходить диагностику!");
         }
-    }
+    }*/
 
 
     public static void printSpecialSymbol() {
