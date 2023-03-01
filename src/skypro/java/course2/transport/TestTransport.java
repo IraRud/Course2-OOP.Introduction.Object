@@ -7,6 +7,9 @@ import skypro.java.course2.transport.enums.BodyType;
 import skypro.java.course2.transport.enums.Capacity;
 import skypro.java.course2.transport.enums.LoadType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
     public static void main(String[] args) {
@@ -64,10 +67,24 @@ public class TestTransport {
 
         printSpecialSymbol();
         // метод passDiagnostics необходимо вызывать через статический метод checkPassDiagnostics()
-        checkPassDiagnostics(firstBus);
+/*        checkPassDiagnostics(firstBus);
         checkPassDiagnostics(secondCar);
-        checkPassDiagnostics(firstTruck);
+        checkPassDiagnostics(firstTruck);*/
 
+        // (lesson 7) работа с коллекциями
+        printSpecialSymbol();
+
+        // список для соревнующихся машин
+        List<Transport> participantsOfCompetition = new ArrayList<>();
+        Car thirdCar = new Car("Kia", "Model KK", 3, BodyType.VAN);
+        participantsOfCompetition.add(thirdCar);
+        participantsOfCompetition.add(secondCar);
+        participantsOfCompetition.add(firstTruck);
+        participantsOfCompetition.add(firstBus);
+        // вывод участников гонки в консоль для проверки
+        for (int i = 0; i < participantsOfCompetition.size(); i++) {
+            System.out.println(participantsOfCompetition.get(i));
+        }
     }
 
 /*    // проверка методов из родительского класса
