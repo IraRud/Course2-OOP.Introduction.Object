@@ -1,4 +1,4 @@
-package skypro.java.course2.transport;
+package skypro.java.course2.transport.smth;
 
 // проверяемое исключение, поэтому наследует Exception
 public class TransportTypeException extends Exception {

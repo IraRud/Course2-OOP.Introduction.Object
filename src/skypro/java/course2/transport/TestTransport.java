@@ -6,6 +6,7 @@ import skypro.java.course2.transport.drivers.DriverCategoryD;
 import skypro.java.course2.transport.enums.BodyType;
 import skypro.java.course2.transport.enums.Capacity;
 import skypro.java.course2.transport.enums.LoadType;
+import skypro.java.course2.transport.smth.ServiceStation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,54 +24,83 @@ public class TestTransport {
         List<Mechanic> mechanicsListForCar = new ArrayList<>();
         mechanicsListForCar.add(oleg);
         mechanicsListForCar.add(valentina);
+        // данный список не должен быть пустым
+        checkList(mechanicsListForCar);
         // вывод механиков для легковых машин для проверки
         System.out.println("Механики легковых автомобилей: ");
-        checkList(mechanicsListForCar);
         printMechanic(mechanicsListForCar);
 
         // список механиков для грузовиков
+        printToNewParagraph();
         Mechanic nikita = new Mechanic("Никита", "Сергеев", "\"Покрышки\"");
         List<Mechanic> mechanicsListForTruck = new ArrayList<>();
         mechanicsListForTruck.add(nikita);
         mechanicsListForTruck.add(valentina);
+        // данный список не должен быть пустым
+        checkList(mechanicsListForTruck);
         // вывод механиков для легковых машин для проверки
         System.out.println("Механики грузовиков: ");
-        checkList(mechanicsListForTruck);
         printMechanic(mechanicsListForTruck);
 
         // список механиков для автобусов
+        printToNewParagraph();
+        Mechanic alex = new Mechanic("Александр", "Прямой", "\"Ремонт\"");
         List<Mechanic> mechanicsListForBus = new ArrayList<>();
         mechanicsListForBus.add(valentina);
+        mechanicsListForBus.add(alex);
+        // данный список не должен быть пустым
+        checkList(mechanicsListForBus);
         // вывод механиков для автобусов для проверки
         System.out.println("Механики автобусов: ");
-        checkList(mechanicsListForBus);
         printMechanic(mechanicsListForBus);
 
         // водители
         DriverCategoryB<Car> ivanIvanov = new DriverCategoryB<>("Иванов Иван Иванович", true, 3);
+        DriverCategoryB<Car> dmitriyKenchin = new DriverCategoryB<>("Кечин Дмитрий Алексеевич", true, 5);
         DriverCategoryC<Truck> larisaPestrisova = new DriverCategoryC<>("Пестрицова Лариса Ивановна", true, -1);
+        DriverCategoryC<Truck> olgaNechaeva = new DriverCategoryC<>("Нечаева Ольга Михайловна", true, -1);
         DriverCategoryD<Bus> kovalVladislav = new DriverCategoryD<>("Коваль Владислав Какой-то-Там", true, 2);
 
         // список для соревнующихся машин
+        printToNewParagraph();
         Car thirdCar = new Car("Kia", "Model KK", 3, BodyType.VAN, ivanIvanov, mechanicsListForCar);
+        Car fourthCar = new Car("Seat", "Model SS", 3, BodyType.COUPE, dmitriyKenchin, mechanicsListForCar);
         Truck secondTruck = new Truck("Газель", "Model 1070", 10, LoadType.N2, larisaPestrisova, mechanicsListForTruck);
-        Bus secondBus = new Bus("АВТОбусы", "Мосгортрнас", 0, Capacity.BIG, kovalVladislav, mechanicsListForBus);
+        Truck thirdTruck = new Truck("КамАЗ", "Model 999", 10, LoadType.N1, olgaNechaeva, mechanicsListForTruck);
+        Bus secondBus = new Bus("Volgabus", "Мосгортрнас", 0, Capacity.BIG, kovalVladislav, mechanicsListForBus);
         List<Transport> participantsOfCompetition = new ArrayList<>();
         participantsOfCompetition.add(thirdCar);
+        participantsOfCompetition.add(fourthCar);
         participantsOfCompetition.add(secondTruck);
+        participantsOfCompetition.add(thirdTruck);
         participantsOfCompetition.add(secondBus);
-
+        // данный список не должен быть пустым
+        checkList(participantsOfCompetition);
         // вывод участников гонки в консоль для проверки
         System.out.println("Список участников гонки: ");
-        checkList(participantsOfCompetition);
         printParticipantsOfCompetition(participantsOfCompetition);
 
         // вывод листа механиков для конкретного авто
+        printToNewParagraph();
         printMechanic(thirdCar);
 
         // вывод водителя авто
+        printToNewParagraph();
         printNameOfDriver(thirdCar);
         //endregion
+
+        // добавление в очередь на техобслуживание
+        // очередь может быть пустой
+        printToNewParagraph();
+        ServiceStation maintenanceQueue = new ServiceStation();
+        maintenanceQueue.addToMaintenanceQueue(secondTruck);
+        maintenanceQueue.carryOutMaintenanceOfCar();
+        maintenanceQueue.carryOutMaintenanceOfCar();
+        printToNewParagraph();
+        maintenanceQueue.addToMaintenanceQueue(secondTruck);
+        // для проверки на исключение
+        maintenanceQueue.addToMaintenanceQueue(secondBus);
+        maintenanceQueue.carryOutMaintenanceOfCar();
 
 /*
         printSpecialSymbol();
@@ -150,6 +180,8 @@ public class TestTransport {
             // вывод сообщения об ошибке (с подсветкой)
             System.err.println(e.getMessage() + " Автобус " + transport.getBrand() + " " + transport.getModel()
                     + " не может проходить диагностику!");
+            // выход из системы
+            System.exit(0);
         }
     }*/
 
@@ -187,6 +219,10 @@ public class TestTransport {
 
     public static void printSpecialSymbol() {
         System.out.println("--------------- + + + ---------------");
+    }
+
+    public static void printToNewParagraph() {
+        System.out.println();
     }
 
 }

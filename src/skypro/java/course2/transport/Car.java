@@ -43,7 +43,7 @@ public class Car extends Transport<DriverCategoryB>  implements Competing{ // н
 
     // переопределение метода «Пройти диагностику», для легковушки достаточно прсто сообщения
     @Override
-    protected void passDiagnostics() {
+    public void passDiagnostics() {
         System.out.println(getType() + " " + getBrand() + " " + getModel() + " может проходить диагностику.");
     }
     //endregion

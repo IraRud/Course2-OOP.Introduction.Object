@@ -42,7 +42,7 @@ public class Truck extends Transport<DriverCategoryC> implements Competing { // 
 
     // переопределение метода «Пройти диагностику», для грузовика достаточно прсто сообщения
     @Override
-    protected void passDiagnostics() {
+    public void passDiagnostics() {
         System.out.println(getType() + " " + getBrand() + " " + getModel() + " может проходить диагностику.");
     }
     //endregion

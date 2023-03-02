@@ -3,6 +3,7 @@ package skypro.java.course2.transport;
 import skypro.java.course2.transport.drivers.DriverCategoryD;
 import skypro.java.course2.transport.enums.Capacity;
 import skypro.java.course2.transport.enums.Type;
+import skypro.java.course2.transport.smth.TransportTypeException;
 
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class Bus extends Transport<DriverCategoryD>  implements Competing { // �
 
     // переопределение метода «Пройти диагностику», для автобуса необходимо выкинуть исключение
     @Override
-    protected void passDiagnostics() throws TransportTypeException {
+    public void passDiagnostics() throws TransportTypeException {
         throw new TransportTypeException("Автобусы диагностику проходить не должны!");
     }
     //endregion

@@ -4,6 +4,7 @@ import static skypro.java.course2.transport.ValidateUtils.validateString;
 
 import skypro.java.course2.transport.drivers.Driver;
 import skypro.java.course2.transport.enums.Type;
+import skypro.java.course2.transport.smth.TransportTypeException;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ public abstract class Transport <D extends Driver> {
 
     // необходимо переопределить в наследниках (урок Exception)
     // «Пройти диагностику». в сигнатуре указано исключение (может не использоваться в наследниках, если нет необходимости)
-    protected abstract void passDiagnostics() throws TransportTypeException;
+    public abstract void passDiagnostics() throws TransportTypeException;
     //endregion
 
     public String getBrand() {
