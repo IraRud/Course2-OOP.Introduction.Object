@@ -9,7 +9,9 @@ import skypro.java.course2.transport.enums.LoadType;
 import skypro.java.course2.transport.smth.ServiceStation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
@@ -101,6 +103,12 @@ public class TestTransport {
         // для проверки на исключение
         maintenanceQueue.addToMaintenanceQueue(secondBus);
         maintenanceQueue.carryOutMaintenanceOfCar();
+
+        printSpecialSymbol();
+
+        // создадим HashMap, которая в качестве ключа будет принимать автомобиль, а в качестве значения — список механиков,
+        // который его обслуживает.
+        Map<Transport, List<Mechanic>> transportListMap = new HashMap<>();
 
 /*
         printSpecialSymbol();
