@@ -1,14 +1,17 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.drivers.DriverCategoryC;
 import skypro.java.course2.transport.enums.LoadType;
 import skypro.java.course2.transport.enums.Type;
 
-public class Truck extends Transport implements Competing { // наследует класс Transport и расширяет интерфейс Competing
+import java.util.List;
+
+public class Truck extends Transport<DriverCategoryC> implements Competing { // наследует класс Transport и расширяет интерфейс Competing
 
     private final LoadType loadType;       // переменная для типа грузоподъемности (из enum LoadType)
 
-    public Truck (String brand, String model, double engineVolume, LoadType loadType) {
-        super(brand, model, engineVolume);
+    public Truck (String brand, String model, double engineVolume, LoadType loadType, DriverCategoryC driver, List<Mechanic> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.loadType = loadType;
     }
 
@@ -39,7 +42,7 @@ public class Truck extends Transport implements Competing { // наследуе�
 
     // переопределение метода «Пройти диагностику», для грузовика достаточно прсто сообщения
     @Override
-    protected void passDiagnostics() {
+    public void passDiagnostics() {
         System.out.println(getType() + " " + getBrand() + " " + getModel() + " может проходить диагностику.");
     }
     //endregion

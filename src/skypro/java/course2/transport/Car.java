@@ -1,15 +1,18 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.drivers.DriverCategoryB;
 import skypro.java.course2.transport.enums.BodyType;
 import skypro.java.course2.transport.enums.Type;
 
-public class Car extends Transport implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
+import java.util.List;
+
+public class Car extends Transport<DriverCategoryB>  implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
 
     private final Type type = Type.CAR;
     private final BodyType bodyType;       // переменная для типа кузова (из enum BodyType)
 
-    public Car (String brand, String model, double engineVolume, BodyType bodyType) {
-        super(brand, model, engineVolume);
+    public Car (String brand, String model, double engineVolume, BodyType bodyType, DriverCategoryB driver, List<Mechanic> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.bodyType = bodyType;
     }
 
@@ -40,7 +43,7 @@ public class Car extends Transport implements Competing{ // наследует �
 
     // переопределение метода «Пройти диагностику», для легковушки достаточно прсто сообщения
     @Override
-    protected void passDiagnostics() {
+    public void passDiagnostics() {
         System.out.println(getType() + " " + getBrand() + " " + getModel() + " может проходить диагностику.");
     }
     //endregion

@@ -1,17 +1,26 @@
 package skypro.java.course2.transport;
 
 import static skypro.java.course2.transport.ValidateUtils.validateString;
-import skypro.java.course2.transport.enums.Type;
 
-public abstract class Transport {
+import skypro.java.course2.transport.drivers.Driver;
+import skypro.java.course2.transport.enums.Type;
+import skypro.java.course2.transport.smth.TransportTypeException;
+
+import java.util.List;
+
+public abstract class Transport <D extends Driver> {
     final private String brand;   // марка
     private String model;   // модель, можно изменять
     private final double engineVolume;    // объем двигателя в литрах
+    private List<Mechanic> mechanicList;    // переменная для списка механиков
+    private D driver;
 
-    public Transport(String brand, String model, double engineVolume) {
+    public Transport(String brand, String model, double engineVolume, D driver, List<Mechanic> mechanicList) {
         this.brand = validateStringValue(brand);
         this.model = validateStringValue(model);
         this.engineVolume = validateEngineVolume(engineVolume);
+        this.driver = driver;
+        this.mechanicList = mechanicList;
     }
 
     // region VALIDATION
@@ -43,7 +52,7 @@ public abstract class Transport {
 
     // необходимо переопределить в наследниках (урок Exception)
     // «Пройти диагностику». в сигнатуре указано исключение (может не использоваться в наследниках, если нет необходимости)
-    protected abstract void passDiagnostics() throws TransportTypeException;
+    public abstract void passDiagnostics() throws TransportTypeException;
     //endregion
 
     public String getBrand() {
@@ -58,12 +67,28 @@ public abstract class Transport {
         return engineVolume;
     }
 
+    public D getDriver() {
+        return driver;
+    }
+
+    public void setDriver(D driver) {
+        this.driver = driver;
+    }
+
+    public List<Mechanic> getMechanicList() {
+        return mechanicList;
+    }
+
+    public void setMechanicList(List<Mechanic> mechanicList) {
+        this.mechanicList = mechanicList;
+    }
+
     public void setModel(String model) {
         this.model = validateStringValue(model);
     }
 
     @Override
     public String toString() {
-        return "Бренд: "+ brand + ", модель: " + model + ", объем двигателя: " + engineVolume + " л.";
+        return "Бренд: " + brand + ", модель: " + model + ", объем двигателя: " + engineVolume + " л.";
     }
 }

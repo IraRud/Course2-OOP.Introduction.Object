@@ -1,14 +1,18 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.drivers.DriverCategoryD;
 import skypro.java.course2.transport.enums.Capacity;
 import skypro.java.course2.transport.enums.Type;
+import skypro.java.course2.transport.smth.TransportTypeException;
 
-public class Bus extends Transport implements Competing { // наследует класс Transport и расширяет интерфейс Competing
+import java.util.List;
+
+public class Bus extends Transport<DriverCategoryD>  implements Competing { // наследует класс Transport и расширяет интерфейс Competing
 
     private final Capacity capacity;       // переменная для типа вместимости (из enum Capacity)
 
-    public Bus (String brand, String model, double engineVolume, Capacity capacity) {
-        super(brand, model, engineVolume);
+    public Bus (String brand, String model, double engineVolume, Capacity capacity, DriverCategoryD driver, List<Mechanic> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.capacity = capacity;
     }
 
@@ -39,7 +43,7 @@ public class Bus extends Transport implements Competing { // наследует 
 
     // переопределение метода «Пройти диагностику», для автобуса необходимо выкинуть исключение
     @Override
-    protected void passDiagnostics() throws TransportTypeException {
+    public void passDiagnostics() throws TransportTypeException {
         throw new TransportTypeException("Автобусы диагностику проходить не должны!");
     }
     //endregion
