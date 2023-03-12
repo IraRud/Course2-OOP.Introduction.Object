@@ -5,6 +5,7 @@ import skypro.java.course2.transport.enums.BodyType;
 import skypro.java.course2.transport.enums.Type;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Car extends Transport<DriverCategoryB>  implements Competing{ // наследует класс Transport и расширяет интерфейс Competing
 
@@ -24,6 +25,19 @@ public class Car extends Transport<DriverCategoryB>  implements Competing{ // н
 
     public BodyType getBodyType() {
         return bodyType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return type == car.type && bodyType == car.bodyType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, bodyType);
     }
 
     //region переопределение методов родительского класса

@@ -6,6 +6,7 @@ import skypro.java.course2.transport.enums.Type;
 import skypro.java.course2.transport.smth.TransportTypeException;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Bus extends Transport<DriverCategoryD>  implements Competing { // наследует класс Transport и расширяет интерфейс Competing
 
@@ -24,6 +25,20 @@ public class Bus extends Transport<DriverCategoryD>  implements Competing { // �
 
     public Capacity getCapacity() {
         return capacity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return capacity == bus.capacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), capacity);
     }
 
     //region переопределение методов родительского класса
