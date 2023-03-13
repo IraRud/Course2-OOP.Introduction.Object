@@ -9,7 +9,9 @@ import skypro.java.course2.transport.enums.LoadType;
 import skypro.java.course2.transport.smth.ServiceStation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
@@ -98,9 +100,32 @@ public class TestTransport {
         maintenanceQueue.carryOutMaintenanceOfCar();
         printToNewParagraph();
         maintenanceQueue.addToMaintenanceQueue(secondTruck);
-        // для проверки на исключение
+/*        // для проверки на исключение
         maintenanceQueue.addToMaintenanceQueue(secondBus);
-        maintenanceQueue.carryOutMaintenanceOfCar();
+        maintenanceQueue.carryOutMaintenanceOfCar();*/
+
+        printSpecialSymbol();
+
+        List<Mechanic> newMechanicsList = new ArrayList<>();
+        newMechanicsList.add(new Mechanic("Новый", "Механик", "\"Проверка\""));
+
+        // создадим HashMap, которая в качестве ключа будет принимать автомобиль, а в качестве значения — список механиков,
+        // который его обслуживает
+        Map<Transport, List<Mechanic>> transportListHashMap = new HashMap<>();
+        // используем два одинаковых объекта: thirdCar и новый объект с идентичными полями (!!добавить в классы hashCode() и equals()!!)
+        transportListHashMap.put(thirdCar, mechanicsListForCar);
+        transportListHashMap.put(new Car("Kia", "Model KK", 3, BodyType.VAN, ivanIvanov, mechanicsListForCar), newMechanicsList);
+        // в консоль должна быть выведена только последняя запись при условии наличия одного и того же ключа
+        printHashMap(transportListHashMap);
+
+        printToNewParagraph();
+        // по аналогии сделаем проверку для автобусов и грузовиков и добавим в предыдущий список
+        transportListHashMap.put(secondBus, mechanicsListForBus);
+        transportListHashMap.put(new Bus("Volgabus", "Мосгортрнас", 0, Capacity.BIG, kovalVladislav, mechanicsListForBus), newMechanicsList);
+        transportListHashMap.put(secondTruck, mechanicsListForTruck);
+        transportListHashMap.put(new Truck("Газель", "Model 1070", 10, LoadType.N2, larisaPestrisova, mechanicsListForTruck), newMechanicsList);
+        transportListHashMap.put(thirdTruck, mechanicsListForTruck);
+        printHashMap(transportListHashMap);
 
 /*
         printSpecialSymbol();
@@ -215,6 +240,14 @@ public class TestTransport {
     public static void printNameOfDriver(Transport transport) {
         System.out.println("Водителем " + transport.getBrand() + " " + transport.getModel()
                 + " является " + transport.getDriver().getFullName() + ".");
+    }
+
+    // метод для вывода пары: транспорт <-> список механиков
+    public static void printHashMap(Map<Transport, List<Mechanic>> transportListHashMap) {
+        System.out.println("HashMap \"транспорт - механики\": ");
+        for (Map.Entry<Transport, List<Mechanic>> transport : transportListHashMap.entrySet()) {
+            System.out.println(transport.getKey() + " <-> " + transport.getValue());
+        }
     }
 
     public static void printSpecialSymbol() {

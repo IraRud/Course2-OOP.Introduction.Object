@@ -7,6 +7,7 @@ import skypro.java.course2.transport.enums.Type;
 import skypro.java.course2.transport.smth.TransportTypeException;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport <D extends Driver> {
     final private String brand;   // марка
@@ -85,6 +86,19 @@ public abstract class Transport <D extends Driver> {
 
     public void setModel(String model) {
         this.model = validateStringValue(model);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(mechanicList, transport.mechanicList) && Objects.equals(driver, transport.driver);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, mechanicList, driver);
     }
 
     @Override
