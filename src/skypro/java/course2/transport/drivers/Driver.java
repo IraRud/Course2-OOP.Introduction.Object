@@ -1,6 +1,6 @@
 package skypro.java.course2.transport.drivers;
 
-import skypro.java.course2.transport.Car;
+import java.util.Objects;
 
 import static skypro.java.course2.transport.ValidateUtils.validateBoolean;
 import static skypro.java.course2.transport.ValidateUtils.validateString;
@@ -26,7 +26,7 @@ public abstract class Driver {
 
     public abstract void refuel(); // заправить авто
 
-    //region ГЕТТЕРЫ И СЕТТЕРЫ
+    //region ГЕТТЕРЫ, СЕТТЕРЫ, hashCode и equals
     public String getFullName() {
         return fullName;
     }
@@ -45,6 +45,19 @@ public abstract class Driver {
 
     public void setExperience(int experience) {
         this.experience = validateExperience(experience);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return driversLicense == driver.driversLicense && experience == driver.experience && Objects.equals(fullName, driver.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, driversLicense, experience);
     }
     //endregion
 
