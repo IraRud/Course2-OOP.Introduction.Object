@@ -10,7 +10,8 @@ public class Main {
 //        task1();
 //        task2();
 //        task3();
-        task4();
+//        task4();
+        task5();
     }
 
     private static void task1() {
@@ -99,6 +100,36 @@ public class Main {
         Supplier<Integer> integerSupplierLE = () -> (int) (Math.random() * 100);
         // проверка
         System.out.println(integerSupplierLE.get());
+    }
+
+    private static void task5() {
+        // зарплаты сотрудников
+        Integer salary1 = 45_000;
+        Integer salary2 = 17_035;
+
+        // зарплата меньше 25 тыс.р.?
+        Predicate<Integer> integerPredicate = n -> n <= 25_000;
+        // если да, то повысьте в полтора раза!
+        Function<Integer, Double> ifTrue = n -> n * 1.5;
+        // если нет, то заберите часть
+        Function<Integer, Integer> ifElse = n -> n - 25_000;
+
+        // пересчитаем зарплаты
+        Number newSalary1 = ternaryOperator(integerPredicate, ifTrue, ifElse).apply(salary1);
+        Number newSalary2 = ternaryOperator(integerPredicate, ifTrue, ifElse).apply(salary2);
+        // проверка
+        System.out.println(newSalary1);
+        System.out.println(newSalary2);
+    }
+
+    // метод для задания 5
+    public static <T, U> Function<T, U> ternaryOperator(
+            Predicate<? super T> condition,
+            Function<? super T, ? extends U> ifTrue,
+            Function<? super T, ? extends U> ifFalse) {
+        // проверяем, какова зарплата сотрудника (t) относительно минимума
+        // если меньше, то возвращем функцию для true, если нет - для false
+        return t -> condition.test(t) ? ifTrue.apply(t) : ifFalse.apply(t);
     }
 
 }
