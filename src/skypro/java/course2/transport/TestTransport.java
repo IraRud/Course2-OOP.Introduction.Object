@@ -1,5 +1,6 @@
 package skypro.java.course2.transport;
 
+import skypro.java.course2.transport.drivers.Driver;
 import skypro.java.course2.transport.drivers.DriverCategoryB;
 import skypro.java.course2.transport.drivers.DriverCategoryC;
 import skypro.java.course2.transport.drivers.DriverCategoryD;
@@ -8,10 +9,7 @@ import skypro.java.course2.transport.enums.Capacity;
 import skypro.java.course2.transport.enums.LoadType;
 import skypro.java.course2.transport.smth.ServiceStation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 // отдельный класс для тестирования класса Transport и наследующих его
 public class TestTransport {
@@ -126,6 +124,29 @@ public class TestTransport {
         transportListHashMap.put(new Truck("Газель", "Model 1070", 10, LoadType.N2, larisaPestrisova, mechanicsListForTruck), newMechanicsList);
         transportListHashMap.put(thirdTruck, mechanicsListForTruck);
         printHashMap(transportListHashMap);
+
+        printSpecialSymbol();
+
+        // создадим  множество, состоящее из водителей
+        Set<Driver> drivers = new HashSet<>();
+        // используем две пары одинаковых объектов для проверки (!!добавить в классы hashCode() и equals()!!)
+        drivers.add(ivanIvanov);
+        drivers.add( new DriverCategoryB<>("Иванов Иван Иванович", true, 3));
+        drivers.add(dmitriyKenchin);
+        drivers.add(dmitriyKenchin);
+        // должен вывести два значения
+        for (Driver driver : drivers) {
+            System.out.println(driver);
+        }
+
+        printToNewParagraph();
+        drivers.add(olgaNechaeva);
+        // создадим итератор
+        Iterator<Driver> driverIterator = drivers.iterator();
+        // выведем в консоль множество
+        while (driverIterator.hasNext()) {
+            System.out.println(driverIterator.next());
+        }
 
 /*
         printSpecialSymbol();
