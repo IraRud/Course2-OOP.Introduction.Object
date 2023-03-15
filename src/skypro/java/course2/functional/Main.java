@@ -3,12 +3,14 @@ package skypro.java.course2.functional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
 //        task1();
 //        task2();
-        task3();
+//        task3();
+        task4();
     }
 
     private static void task1() {
@@ -61,8 +63,8 @@ public class Main {
 
     private static void task3() {
         // переменные для задания 3
-        Double number1 = 2.1;
-        Double number2 = 2.9;
+        double number1 = 2.1;
+        double number2 = 2.9;
 
         // округление и приведение к типу Long через анонимный класс
         Function<Double, Long> doubleLongFunctionAC = new Function<Double, Long>() {
@@ -80,6 +82,23 @@ public class Main {
         // проверка
         System.out.println(doubleLongFunctionLE.apply(number1));
         System.out.println(doubleLongFunctionLE.apply(number2));
+    }
+
+    private static void task4() {
+        // возвращение случайного числа из диапазона от 0 до 100 через анонимный класс
+        Supplier<Integer> integerSupplier = new Supplier<Integer>() {
+            @Override
+            public Integer get() {
+                return (int) (Math.random() * 100);
+            }
+        };
+        // проверка
+        System.out.println(integerSupplier.get());
+
+        // возвращение случайного числа из диапазона от 0 до 100 через лямбда-выражение
+        Supplier<Integer> integerSupplierLE = () -> (int) (Math.random() * 100);
+        // проверка
+        System.out.println(integerSupplierLE.get());
     }
 
 }
