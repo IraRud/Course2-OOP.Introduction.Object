@@ -7,10 +7,14 @@ import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
-//        task1();
-//        task2();
-//        task3();
-//        task4();
+        task1();
+        printSpecialSymbol();
+        task2();
+        printSpecialSymbol();
+        task3();
+        printSpecialSymbol();
+        task4();
+        printSpecialSymbol();
         task5();
     }
 
@@ -130,6 +134,10 @@ public class Main {
         // проверяем, какова зарплата сотрудника (t) относительно минимума
         // если меньше, то возвращем функцию для true, если нет - для false
         return t -> condition.test(t) ? ifTrue.apply(t) : ifFalse.apply(t);
+    }
+
+    public static void printSpecialSymbol() {
+        System.out.println(" ヽ(*・ω・)ﾉ  ヽ(*・ω・)ﾉ  ヽ(*・ω・)ﾉ ");
     }
 
 }
