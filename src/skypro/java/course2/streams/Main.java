@@ -9,6 +9,8 @@ public class Main {
     public static void main(String[] args) {
 
         task1();
+        printSpecialSymbol();
+        task2();
 
     }
 
@@ -53,6 +55,25 @@ public class Main {
             // в максимум - послденне значение отсортированной коллекции, при помощи метода get(index)
             minMaxConsumer.accept(list.get(0), list.get(list.size()-1));
         }
+    }
+
+    public static void task2() {
+
+        // список целых чисел
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        // создаем стрим из наших чисел
+        // long, т.к. count() возвращает long
+        long evenNumbers = integerList.stream()
+                // отбираем четные элементы
+                .filter(i -> i % 2 == 0)
+                // считаем их количество
+                .count();
+        System.out.println("Четных чисел: " + evenNumbers);
+
+        //дополнительно: вывод количества нечетных чисел
+        long oddNumbers = integerList.stream().filter(i -> i % 2 != 0).count();
+        System.out.println("Нечетных чисел: " + oddNumbers);
+
     }
 
     public static void printSpecialSymbol() {
